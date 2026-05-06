@@ -1,0 +1,140 @@
+<!-- Copyright (c) 2024, Oracle and/or its affiliates -->
+<oj-messages messages="[[ $variables.messagesADP.data ]]" position.at.horizontal="center" position.at.vertical="top"
+  position.collision="flip" position.my.vertical="top" display-options.category="header" class="oj-messages-outlined">
+</oj-messages>
+<div id="pageContent" class="oj-web-applayout-page vb-web-applayout-page " style="background-color:white;" >
+    <!-- <div class="oj-web-applayout-content-nopad oj-web-applayout-max-width"> -->
+  <!-- <div class="oj-web-applayout-page vb-web-applayout-page oj-web-applayout-max-width-off"> -->
+
+  <div class="oj-flex">
+    <!-- <oj-sp-messages-banner data="[[ $variables.messagesBannerADP ]]" class="oj-flex-item oj-sm-12 oj-md-12"
+          on-sp-close="[[$listeners.messagesBannerSpClose]]"
+          ></oj-sp-messages-banner> -->
+
+    <div style="background-color: #0072BC;" class="oj-flex oj-sm-12 oj-sm-align-items-center">
+
+      <!-- Small logo on the left -->
+      <div style="margin-left: 5px;">
+        <img width="50" height="50" :src="[[ $application.path + 'resources/images/PROMS-new.png' ]]">
+      </div>
+
+      <!-- Page Title -->
+      <span class="oj-flex-item oj-sm-flex-1"
+        style="color: white; font-weight: bold; margin-left: 10px; font-size: 20px;">
+    <oj-bind-text value="[['PROMS - ' + $application.variables.pageTitle]]"></oj-bind-text>
+  </span>
+
+      <oj-highlight-text text='[[ "Selected Role:   "+$application.variables.userInfoObj.SelectedDisplayRoleName ]]'
+        style="width:400px;color:white;font-color:white;font-size:13px;font-weight:bold;" id="selectedrole">
+      </oj-highlight-text>
+      <!-- <select single> -->
+      <!-- <div class="oj-flex oj-sm-align-items-center" style="margin-right: 20px;"> -->
+
+      <!-- Label on the left -->
+      <!-- <oj-label class="oj-flex-item oj-sm-flex-initial" style="color: black; margin-right: 8px;"> -->
+
+      <!-- Select box on the right -->
+
+      <!-- <div class="oj-flex "> -->
+      <!-- <oj-label for="selectedrole"  class="oj-sm-align-self-center" style="margin-left:8px;font-size: 12px;color:white;font-weight: bold">Selected
+            Role:</oj-label> -->
+      <!-- <oj-highlight-text text='[[ "Selected Role:   "+$application.variables.userInfoObj.SelectedDisplayRoleName ]]'
+            style="width: 200px;color:white;font-color:white;font-size:13px;font-weight:bold;" id="selectedrole">
+          </oj-highlight-text> -->
+      <!-- <oj-input-text readonly="true" value="{{ $application.variables.userInfoObj.SelectedRoleName }}" style="width: 200px;margin-left:6px;color:white;font-color:white;font-weight:bold;"
+          id="selectedrole" aria-label="Selected Role"></oj-input-text>  -->
+      <!-- </div> -->
+      <div class="oj-flex oj-sm-justify-content-center oj-sm-align-items-center">
+        <oj-label for="language" class="oj-sm-align-self-center" style="color:white;font-weight: bold;">Language:
+        </oj-label>
+        <oj-select-single style="width: 200px;margin-left:6px;" data="[[ $variables.languageOptionADP ]]"
+          value="{{ $variables.selectedLocale }}" on-value-item-changed="[[$listeners.selectValueItem]]"
+          on-click="[[$listeners.selectClick]]" id="language" aria-label="Language" label-edge="none">
+        </oj-select-single>
+      </div>
+
+      <!-- </div> -->
+
+      <!-- Fixed Right-Side Logo -->
+      <div style="margin-left: auto; margin-right: 20px;">
+        <img width="150" height="55"
+      :src="[[ $application.path + 'resources/images/tmp_9e5bdbef-eb3b-4e29-9a35-3c08c9fe8387.png' ]]">
+        <!-- <img width="150" height="70"
+      :src="[[ $application.path + 'resources/images/blank_img.png' ]]"> -->
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+
+  <!-- <oj-sp-messages-toast primary-text="[[ $variables.messageToast ]]" id="messageToast"></oj-sp-messages-toast> -->
+
+  <div class="vb-content-and-footer-container oj-flex oj-sm-flex-direction-column  oj-sm-flex-wrap-nowrap">
+    <!-- Renders flow content -->
+    <oj-vb-content id="vbRouterContent" class=" oj-flex-item oj-md-12" config="[[vbRouterFlow]]">
+      <!-- <div class="oj-flex-item oj-sm-1 oj-md-1"></div>
+<!-- <oj-vb-content id="vbRouterContent" class="vb-pages-module oj-flex-item oj-flex vb-cont-over-class oj-offcanvas-outer-wrapper oj-sm-12 oj-md-12" config="[[vbRouterFlow]]" > -->
+    </oj-vb-content>
+    <!-- </div> -->
+
+  </div>
+
+  <oj-dialog id="sessionExpired" class="oj-md-6 oj-sm-6" cancel-behavior="none"
+    :position.my.vertical="[[!$application.responsive.smOnly ? 'center' : 'top']]"
+    :position.at.vertical="[[!$application.responsive.smOnly ? 'center' : 'top']]">
+    <div slot="body">
+      <div class="oj-flex oj-sm-flex-items-initial oj-sm-flex-direction-column oj-sm-justify-content-center">
+        <div class="oj-flex-item oj-sm-align-self-center">
+          <img :src="[[ $application.path + 'resources/images/clock.png' ]]" width="32" >
+        </div>
+        <div class=" oj-flex-item  oj-sm-align-self-center dialog_send_back_dashboard bolder_text">
+          <oj-bind-text value="You have been logged out due to inactivity. Please click the button to reload the page.">
+          </oj-bind-text>
+        </div>
+      </div>
+      <div class="oj-flex oj-sm-flex-direction-column oj-sm-margin-4x-bottom oj-sm-12">
+        <oj-form-layout max-columns="1" columns="1" class="oj-sm-12">
+          <oj-bind-text value=""></oj-bind-text>
+          <oj-toolbar class="oj-flex oj-flex-item  oj-sm-justify-content-center oj-sm-12">
+            <oj-button class="width50" chroming="solid" on-oj-action="[[$listeners.buttonAction]]">
+              <oj-highlight-text text="OK"></oj-highlight-text>
+            </oj-button>
+            <!-- <oj-button class="width50" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]">
+                <oj-bind-text value="No"></oj-bind-text>
+              </oj-button> -->
+          </oj-toolbar>
+        </oj-form-layout>
+      </div>
+    </div>
+  </oj-dialog>
+
+
+  <oj-dialog id="sessionWarning" class="oj-md-6 oj-sm-6" cancel-behavior="none"
+    :position.my.vertical="[[!$application.responsive.smOnly ? 'center' : 'top']]"
+    :position.at.vertical="[[!$application.responsive.smOnly ? 'center' : 'top']]">
+    <div slot="body">
+      <div class="oj-flex oj-sm-flex-items-initial oj-sm-flex-direction-column oj-sm-justify-content-center">
+        <div class="oj-flex-item oj-sm-align-self-center">
+          <img :src="[[ $application.path + 'resources/images/clock.png' ]]" width="32" >
+        </div>
+        <div class=" oj-flex-item  oj-sm-align-self-center dialog_send_back_dashboard bolder_text">
+          <oj-bind-text
+            value="You will be logged out in 2 minutes due to inactivity. Please interact to stay logged in">
+          </oj-bind-text>
+        </div>
+      </div>
+      <div class="oj-flex oj-sm-flex-direction-column oj-sm-margin-4x-bottom oj-sm-12">
+        <oj-form-layout max-columns="1" columns="1" class="oj-sm-12">
+          <oj-bind-text value=""></oj-bind-text>
+          <oj-toolbar class="oj-flex oj-flex-item  oj-sm-justify-content-center oj-sm-12">
+            <oj-button class="width50" chroming="solid" on-oj-action="[[$listeners.buttonAction2]]">
+              <oj-highlight-text text="Ok"></oj-highlight-text>
+            </oj-button>
+        </oj-form-layout>
+      </div>
+    </div>
+  </oj-dialog>

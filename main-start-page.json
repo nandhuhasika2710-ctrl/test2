@@ -1,0 +1,3694 @@
+{
+  "title": "",
+  "description": "",
+  "variables": {
+    "accountCurrent": {
+      "type": {
+        "accountCode": "string",
+        "accountDescription": "string",
+        "baseLine": "string",
+        "comments": "string",
+        "fpn_account_id": "string",
+        "fpn_location_id": "string",
+        "fpn_output_id": "string",
+        "lineStatus": "string",
+        "loc": "string",
+        "name": "string",
+        "output_code": "string",
+        "type": "string",
+        "value": "number"
+
+      }
+    },
+    "arrayTreeDP": {
+      "type": "any"
+    },
+    "clearCommentOnce": {
+      "type": "boolean",
+      "defaultValue": true
+    },
+    "CurrentUserRole": {
+      "type": "string"
+    },
+    "defaultTypeNumberForPartner": {
+      "type": "string"
+    },
+    "disableSubmitButton": {
+      "type": "boolean"
+    },
+    "dsCommentsObj": {
+      "type": {
+        "accountNumber": "string"
+      }
+    },
+    "dsLineStatusSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getDSAccountstatuslov",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "fetchChain": "getAccountstatuslovFetch4"
+      }
+    },
+    "dsReallocationAccountStatusLOVSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getDsReallocationAccountstatuslov",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "fetchChain": "getAccountstatuslovFetch6"
+      }
+    },
+    "EssentialcontrolValidation": {
+      "type": "string"
+    },
+    "excelImportFailedData": {
+      "type": "any[]"
+    },
+    "excelImportMessages": {
+      "type": {
+        "primayMessage": "string",
+        "secondaryMessages": "string"
+      }
+    },
+    "formattedBUCode": {
+      "type": "any"
+    },
+    "fundsDataPie": {
+      "type": "object",
+      "defaultValue": {
+        "consumptionRate": 72.82,
+        "remainingBalance": 27.18
+      }
+    },
+    "getMultiAccountLineStatusLov": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getMultiAccountLinestatuslov",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "fetchChain": "getAccountstatuslovFetch5"
+      }
+    },
+    "indirectPartnerPercentage": {
+      "type": "number"
+    },
+    "indirectPartnerType": {
+      "type": "string"
+    },
+    "multiLevelStatusUpdateSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getAccountstatuslov",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "fetchChain": "getAccountstatuslovFetch2"
+      }
+    },
+    "partnerCanEdit": {
+      "type": "boolean"
+    },
+    "reallocationMultiLevelStatusSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getAccountstatuslov",
+        "responseType": "getReallocationAccountstatuslovType",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "uriParameters": {
+          "p_partner_type": "{{ $application.variables.userRole }}",
+          "p_lookup_type": "FPN_UPDATE"
+        }
+      }
+    },
+    "retainRunValidationVar": {
+      "type": "string"
+    },
+    "rowsPerPage": {
+      "type": "number",
+      "defaultValue": 15
+    },
+    "rowsPerPage1": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "id": 15,
+          "label": "15"
+        },
+        {
+          "id": 30,
+          "label": "30"
+        },
+        {
+          "id": 50,
+          "label": "50"
+        },
+        {
+          "id": 70,
+          "label": "70"
+        }        ,
+        {
+          "id": 100,
+          "label": "100"
+        }
+      ]
+    },
+    "rowsPerPageTypeADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "textFilterAttributes": [
+          "label"
+        ],
+        "data": "{{ $variables.rowsPerPage1 }}",
+        "itemType": "rowsPerPageType",
+        "keyAttributes": "id"
+      }
+    },
+    "runValidationADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.runValidationVar }}"
+      }
+    },
+    "runValidationVar": {
+      "type": [
+        {
+          "dataobject": "string",
+          "major_version": "string",
+          "minor_version": "string",
+          "rule_name": "string",
+          "result": "string",
+          "error_message": "string",
+          "instance_id": "string",
+          "created_by": "string",
+          "last_updated_by": "string"
+        }
+      ]
+    },
+    "canChangeScope": {
+      "type": "boolean"
+    },
+    "canCreditNote": {
+      "type": "boolean"
+    },
+    "canEdit": {
+      "type": "boolean"
+    },
+    "canView": {
+      "type": "boolean"
+    },
+    "changeLogADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.changeLogArray }}"
+      }
+    },
+    "changeLogArray": {
+      "type": [
+        {
+          "Date": "string",
+          "Document": "string",
+          "Object": "string",
+          "Time": "string",
+          "User": "string",
+          "Version-Baseline": "string",
+          "New value": "number",
+          "Old value": "number"
+        }
+      ],
+      "defaultValue": [
+        {
+          "Date": "15-09-2025",
+          "Time": "10:02",
+          "User": "sinanogl@unhcr.org",
+          "Document": "FPN-xxx",
+          "Version-Baseline": "1.1",
+          "Object": "Output/EO/Account",
+          "Old value": 25000,
+          "New value": 20000
+        },
+        {
+          "Date": "16-09-2025",
+          "Time": "11:02",
+          "User": "sinanogl@unhcr.org",
+          "Document": "FPN-xxx",
+          "Version-Baseline": "1.2",
+          "Object": "Output/EO/Account",
+          "Old value": 35000,
+          "New value": 30000
+        }
+      ]
+    },
+    "backgroundColor": {
+      "type": "string",
+      "defaultValue": "dark-ocean"
+    },
+    "barChartADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "any"
+      }
+    },
+    "changeLogColumns": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "headerText": "Date",
+          "field": "Date"
+        },
+        {
+          "headerText": "Time",
+          "field": "Time"
+        },
+        {
+          "headerText": "User",
+          "field": "User"
+        },
+        {
+          "headerText": "Document",
+          "field": "Document"
+        },
+        {
+          "headerText": "Version-Baseline",
+          "field": "Version-Baseline"
+        },
+        {
+          "headerText": "Object",
+          "field": "Object"
+        },
+        {
+          "headerText": "Old value",
+          "field": "Old value"
+        },
+        {
+          "headerText": "New value",
+          "field": "New value"
+        }
+      ]
+    },
+    "changeLogExportADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getFpnChangelog"
+      }
+    },
+    "changeLogExportColumns": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "headerText": "Object",
+          "field": "object"
+        },
+        {
+          "headerText": "Date",
+          "field": "date"
+        },
+        {
+          "headerText": "Document",
+          "field": "document"
+        },
+        {
+          "headerText": "Field",
+          "field": "field"
+        },
+        {
+          "headerText": "Changed Field",
+          "field": "field_changed"
+        },
+        {
+          "headerText": "New Value",
+          "field": "new_value"
+        },
+        {
+          "headerText": "Old Value",
+          "field": "old_value"
+        },
+        {
+          "headerText": "Time",
+          "field": "time"
+        },
+        {
+          "headerText": "User",
+          "field": "user"
+        },
+        {
+          "headerText": "Version",
+          "field": "version"
+        }
+      ]
+    },
+    "claimDetails": {
+      "type": {
+        "activity_instance_id": "string",
+        "instance_id": "string",
+        "is_locked": "string",
+        "locked_by": "string",
+        "task_id": "string",
+        "unclocked_by": "string"
+      }
+    },
+    "commentsSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getFpncomments",
+        "responseType": "getFpncomments",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_fpn_code": "{{ $variables.currentFpnCode }}"
+        }
+      }
+    },
+    "currentFpnCode": {
+      "type": "string"
+    },
+    "currentPONumber": {
+      "type": "string"
+    },
+    "dataSource": {
+      "type": "any"
+    },
+    "defaultViewColumns": {
+      "type": "string[]",
+      "defaultValue": [
+        "action2",
+        "fpn_code",
+        "total_budget",
+        "fpn_status",
+        "partner_name",
+        "last_updated_by",
+        "last_updated_date"
+      ]
+    },
+    "directSharedArray": {
+      "type": [
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_line_amount": "number",
+          "account_linecomments": "string",
+          "account_negotiated_amount": "any",
+          "account_number": "number",
+          "account_status_code": "string"
+        }
+      ]
+    },
+    "dpCommentsObj": {
+      "type": {
+        "accountNumber": "string",
+        "locationCode": "string",
+        "outputCode": "string"
+      }
+    },
+    "dpCommentsSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getAccounts_comments",
+        "responseType": "getdpcomments",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_account_number": "{{ $variables.dpCommentsObj.accountNumber }}",
+          "p_fpn_location_code": "{{ $variables.dpCommentsObj.locationCode }}",
+          "p_fpn_output_code": "{{ $variables.dpCommentsObj.outputCode }}",
+          "p_fpn_code": "{{ $variables.currentFpnCode }}"
+        }
+      }
+    },
+    "dsaccount_id": {
+      "type": "number"
+    },
+    "dsCommentsSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getFpnCommentsDs",
+        "responseType": "getdsFpnComments",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_fpn_code": "{{ $variables.currentFpnCode }}",
+          "p_account_number": "{{ $variables.dsCommentsObj.accountNumber }}"
+        }
+      }
+    },
+    "expandedKeys": {
+      "type": "any"
+    },
+    "expandLevel": {
+      "type": "any"
+    },
+    "financialSearchPageTable": {
+      "type": "any"
+    },
+    "fpBudgetYearSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "fpContractNumberSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "fpnDraftSubmitStatus": {
+      "type": "string"
+    },
+    "fpOperationSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "fpPartnerSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "fpsearchResultADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "postRetrieveBySearch",
+        "keyAttributes": "fpn_id"
+      }
+    },
+    "headerStatusValue": {
+      "type": "string"
+    },
+    "menuUpdatePageValue": {
+      "type": "string[]",
+      "defaultValue": "[[ $variables.tableColumnArray.map(op=>op.field) ]]",
+      "onValueChanged": {
+        "chains": [
+          {
+            "parameters": {
+              "event": "{{ $event }}"
+            },
+            "chain": "menuUpdatePageValueListener"
+          }
+        ]
+      }
+    },
+    "oicOperationsearchPayload": {
+      "type": {
+        "Budget_Year": "string",
+        "Contract_Number": "string",
+        "Operation_Code": "string",
+        "Partner_Number": "string"
+      }
+    },
+    "opaAccessToken": {
+      "type": "string"
+    },
+    "overviewBudgetYearSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "overviewOperationSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "overviewPartnerSelectedPersistVar": {
+      "type": "any",
+      "persisted": "device"
+    },
+    "overviewTable": {
+      "type": "any"
+    },
+    "reallocationCurrentFpnCode": {
+      "type": "string"
+    },
+    "reallocationCurrentFpnId": {
+      "type": "string"
+    },
+    "reallocationFinancialPlanStatus": {
+      "type": "string"
+    },
+    "reallocationfpnDraftSubmitStatus": {
+      "type": "string"
+    },
+    "riskRatingTypeId": {
+      "type": "number"
+    },
+    "securityOperationCodes": {
+      "type": "string"
+    },
+    "selectedAccountLineStatus": {
+      "type": "string"
+    },
+    "tableColumnArrayAll": {
+      "defaultValue": "[[ [\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrOutput,\n        \"field\": \"outputCode\",\n        \"resizable\": \"enabled\",\n        \"width\": \"400px\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_fpnValue,\n        \"field\": \"baseLine\",\n        \"width\": \"120px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\":  $application.translations.appBundle.label_pfrPISC,\n        \"field\": \"psc\",\n        \"width\": \"100px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrDS,\n        \"field\": \"ds\",\n        \"width\": \"100px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\":$application.translations.appBundle.label_fpnValue,\n        \"field\": \"value\",\n        \"width\": \"120px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrComments,\n        \"field\": \"comments\",\n        \"width\": \"400px\",\n        \"resizable\": \"enabled\",\n        \"className\": \"comments-col\"\n    },\n    {\n        \"headerText\":  $application.translations.appBundle.label_pfrLineStatus,\n        \"field\": \"lineStatus\",\n        \"resizable\": \"enabled\",\n        \"width\": \"150px\"\n    },\n    {\n        \"headerText\":  $application.translations.appBundle.label_pfrTotalExpenses,\n        \"field\": \"total_expenses\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrLastBaseline,\n        \"field\": \"last_baseline\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_fpnTotalCost,\n        \"field\": \"totalCost\"\n    }\n] ]]",
+      "type": "object[]"
+    },
+    "tableColumnArrayOptions": {
+      "type": "object[]",
+      "defaultValue": "[[ [\n\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrTotalExpenses,\n        \"field\": \"total_expenses\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrLastBaseline,\n        \"field\": \"last_baseline\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_fpnTotalCost,\n        \"field\": \"totalCost\"\n    }\n] ]]"
+    },
+    "tempdirectSharedArray": {
+      "type": [
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_line_amount": "number",
+          "account_line_comments": "string",
+          "account_negotiated_amount": "any",
+          "account_number": "number",
+          "account_status_code": "string",
+          "fpn_ds_id": "number",
+          "fpn_id": "number"
+        }
+      ]
+    },
+    "directSharedColumns": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "headerText": "Account",
+          "field": "account_number",
+          "width": "120px",
+          "resizable": "enabled",
+          "sortable": "enabled"
+        },
+        {
+          "headerText": "Account Description",
+          "field": "account_description",
+          "resizable": "enabled",
+          "width": "300px",
+          "sortable": "enabled"
+        },
+        {
+          "headerText": "Value",
+          "field": "account_line_amount",
+          "width": "100px",
+          "headerClassName": "oj-sm-align-items-start",
+          "className": "oj-sm-text-align-end",
+          "resizable": "enabled",
+          "sortable": "enabled",
+          "template": "value"
+        },
+        {
+          "headerText": "Comments",
+          "field": "account_line_comments",
+          "width": "400px",
+          "className": "comments-col",
+          "resizable": "enabled",
+          "sortable": "enabled",
+          "template": "account_linecomments"
+        },
+        {
+          "headerText": "Line Status",
+          "field": "account_status_code",
+          "width": "180px",
+          "resizable": "enabled",
+          "sortable": "enabled",
+          "template": "status"
+        }
+      ]
+    },
+    "directSharedCurrentRow": {
+      "type": "directSharedTableType"
+    },
+    "directSharedTableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "directSharedTableType",
+        "keyAttributes": "account_id"
+      }
+    },
+    "dsAccountStatusLOV": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getLinestatus",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "fetchChain": "getAccountstatuslovFetch3"
+      }
+    },
+    "dsAccountStatusValue": {
+      "type": "string"
+    },
+    "DSselectedRows": {
+      "type": "any"
+    },
+    "dsStatusLovObj": {
+      "type": {
+        "lookup_value_id": "number",
+        "lookup_values": "string"
+      }
+    },
+    "dsTableStatusLovObj": {
+      "type": {
+        "lookup_value_id": "number",
+        "lookup_values": "string"
+      }
+    },
+    "dsStatusUpdateRowsADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "directSharedTableType",
+        "keyAttributes": "account_id"
+      }
+    },
+    "financialPlanStatus": {
+      "type": "string"
+    },
+    "fpBudgetYearLovADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.fpGetbudgetyearlovVar }}",
+        "keyAttributes": "budget_year_id",
+        "textFilterAttributes": [
+          "budget_year"
+        ]
+      }
+    },
+    "fpGetbudgetyearlovVar": {
+      "type": "object[]"
+    },
+    "fpnComment": {
+      "type": "string"
+    },
+    "fpnIdKey": {
+      "type": "any"
+    },
+    "fpnLocked": {
+      "type": "string"
+    },
+    "getAccountsGetListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getAccounts",
+        "responseType": "getAccounts",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_account_type": "DP"
+        },
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "account_number"
+          ]
+        },
+        "keyAttributes": "account_number"
+      }
+    },
+    "getbudgetyearlovVar": {
+      "type": "object[]"
+    },
+    "getDSaccountsSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getDSAccounts",
+        "itemsPath": "items",
+        "fetchChain": "getAccountsFetch"
+      }
+    },
+    "getISaccountsSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getAccounts",
+        "responseType": "getisAccounts",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_account_type": "IS"
+        }
+      }
+    },
+    "getLinestatuslovListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "responseType": "getLinestatusDPType",
+        "itemsPath": "items",
+        "keyAttributes": "lookup_values",
+        "fetchChain": "getAccountstatuslovFetch"
+      }
+    },
+    "indirectSharedADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "tempindirectsuppType",
+        "keyAttributes": "account_id"
+      }
+    },
+    "indirectSharedArray": {
+      "type": "object[]"
+    },
+    "indirectSharedColumns": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "headerText": "Account",
+          "field": "account_number",
+          "resizable": "enabled",
+          "width": "120px"
+        },
+        {
+          "headerText": "Account Description",
+          "field": "account_description",
+          "resizable": "enabled",
+          "width": "300px"
+        },
+        {
+          "headerText": "Calculated",
+          "field": "total_value",
+          "width": "180px",
+          "headerClassName": "oj-sm-align-items-start",
+          "className": "oj-sm-text-align-end",
+          "resizable": "enabled",
+          "template": "isValue"
+        }
+      ]
+    },
+    "indirectSharedCurrentRow": {
+      "type": "tempindirectsuppType"
+    },
+    "ISselectedRows": {
+      "type": "any"
+    },
+    "lineStausUpdate": {
+      "type": "string"
+    },
+    "ovBudgetYearLovADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.getbudgetyearlovVar }}",
+        "textFilterAttributes": [
+          "budget_year"
+        ],
+        "keyAttributes": "budget_year_id"
+      }
+    },
+    "pieChartSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetfpnstatus",
+        "responseType": "getGetfpnstatus",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_year": "{{ $variables.searchPayloadButton.budgetYear }}",
+          "p_operation": "{{ $variables.searchPayloadButton.operation }}",
+          "p_partner_id": "{{ $variables.searchPayloadButton.partner }}",
+          "poperation_code": "{{ $variables.searchPayloadButton.operation }}"
+        }
+      }
+    },
+    "barChartSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetfpnvalues",
+        "responseType": "getGetfpnvalues",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_year": "{{ $variables.searchPayloadButton.budgetYear }}",
+          "p_operation": "{{ $variables.searchPayloadButton.operation }}",
+          "p_partner_id": "{{ $variables.searchPayloadButton.partner }}"
+        }
+      }
+    },
+    "columns_download": {
+      "defaultValue": "[[ [\n    {\n        \"headerText\": $application.translations.appBundle.table_partner,\n        \"field\": \"partner_name\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_financial_plan,\n        \"field\": \"fpn_code\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_budget,\n        \"field\": \"total_budget\",\n        \"style\": \"text-align: right;\",\n        \"resizable\": \"enabled\"\n    },\n   {\n        \"headerText\": $application.translations.appBundle.table_header_negotiated_budget,\n        \"field\": \"total_negotiated_budget\",\n   \"style\": \"text-align: right;\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_modified_by,\n        \"field\": \"last_updated_by\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_modified_date,\n        \"field\": \"last_updated_date\",\n         \"template\": \"date\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_fpn_status,\n        \"field\": \"fpn_status\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.menu_button_poNumber,\n        \"field\": \"po_number\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_contractnumber,\n        \"field\": \"contract_number\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.menu_button_accumulatedExpenses,\n        \"field\": \"accumulated_expenses\",\n        \"resizable\": \"enabled\"\n    }\n] ]]",
+      "type": [
+        {
+          "field": "string",
+          "frozenEdge": "string",
+          "headerText": "string",
+          "sortable": "string",
+          "template": "string",
+          "width": "any"
+        }
+      ]
+    },
+    "financialplanADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "financialplanADPType"
+      }
+    },
+    "fpBudgetYearLov": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetbudgetyearlov",
+        "responseType": "getGetbudgetyearlov",
+        "itemsPath": "items",
+        "keyAttributes": "budget_year",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "budget_year"
+          ]
+        }
+      }
+    },
+    "fpBudgetYearSelectedVar": {
+      "type": "any"
+    },
+    "fpContractNumber": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetcontract_number",
+        "responseType": "getGetcontract_number",
+        "itemsPath": "items",
+        "keyAttributes": "contract_number",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "contract_number"
+          ]
+        }
+      }
+    },
+    "fpContractNumberADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.getContract_numberVar }}",
+        "textFilterAttributes": [
+          "contract_number"
+        ],
+        "keyAttributes": "contract_number_id"
+      }
+    },
+    "fpContractNumberSelectedVar": {
+      "type": "any"
+    },
+    "fpGetOperationslovVar": {
+      "type": "object[]"
+    },
+    "fpGetpartnerlovVar": {
+      "type": "object[]"
+    },
+    "fpOperationLov": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetoperationslov",
+        "responseType": "getGetoperationslov",
+        "itemsPath": "items",
+        "keyAttributes": "operation_code",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "operation_name"
+          ]
+        }
+      }
+    },
+    "fpOperationLovADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.fpGetOperationslovVar }}",
+        "keyAttributes": "operation_code",
+        "textFilterAttributes": [
+          "operation_name"
+        ]
+      }
+    },
+    "fpOperationSelectedVar": {
+      "type": "any"
+    },
+    "fpPartnerLovADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.fpGetpartnerlovVar }}",
+        "keyAttributes": "partner_number",
+        "textFilterAttributes": [
+          "partner_name"
+        ]
+      }
+    },
+    "fpPartnerLovSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetpartnerlov",
+        "responseType": "getGetpartnerlov",
+        "itemsPath": "items",
+        "keyAttributes": "partner_number",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "partner_name"
+          ]
+        }
+      }
+    },
+    "fpPartnerSelectedVar": {
+      "type": "any"
+    },
+    "fpSearchPayload": {
+      "type": {
+        "budgetYear": "string",
+        "operation": "string",
+        "partner": "string",
+        "contractNumber": "string"
+      }
+    },
+    "fpSearchPayloadButton": {
+      "type": {
+        "budgetYear": "string",
+        "operation": "string",
+        "partner": "string",
+        "contractNumber": "string"
+      }
+    },
+    "fpSearchResultSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetfpn_details",
+        "responseType": "getGetfpn_details",
+        "itemsPath": "items",
+        "uriParameters": {
+          "pyear": "{{ $variables.fpSearchPayloadButton.budgetYear }}",
+          "pcontract_number": "{{ $variables.fpSearchPayloadButton.contractNumber }}",
+          "poperation": "{{ $variables.fpSearchPayloadButton.operation }}",
+          "ppartner_id": "{{ $variables.fpSearchPayloadButton.partner }}"
+        },
+        "keyAttributes": "fpn_id"
+      }
+    },
+    "fpSelectedRow": {
+      "type": "object[]"
+    },
+    "genralInfo": {
+      "type": {
+        "budgetYear": "string",
+        "comments": "string",
+        "contractCurrency": "string",
+        "operation": "string",
+        "partnerERPSite": "string",
+        "partnerName": "string",
+        "toataloriginalbudget": "number",
+        "contractNumber": "string",
+        "totalNegotiatedBudget": "number",
+        "totalDirectProgramme": "number",
+        "totalDirectShared": "number",
+        "totalIndirectSupportCost": "number",
+        "totalPFRExpenses": "number"
+      }
+    },
+    "getContract_numberVar": {
+      "type": "object[]"
+    },
+    "getGetBudgetYearListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "stock_Response_API/getGetBudgetYear",
+        "keyAttributes": "ID",
+        "itemsPath": "items",
+        "responseType": "getGetBudgetYearResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "status"
+          ]
+        }
+      }
+    },
+    "getGetBudgetYearListSDP2": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "stock_Response_API/getGetBudgetYear",
+        "keyAttributes": "status",
+        "itemsPath": "items",
+        "responseType": "getGetBudgetYearResponse2",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "status"
+          ]
+        }
+      }
+    },
+    "getGetfpn_detailsVar": {
+      "type": {
+        "fpn_status": "string",
+        "fpn_code": "string",
+        "fpn_id": "number"
+      }
+    },
+    "getLanguageListSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "stock_Response_API/getLanguage",
+        "keyAttributes": "accountCode",
+        "itemsPath": "accounts",
+        "responseType": "getLanguageResponse",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "accountCode"
+          ]
+        }
+      }
+    },
+    "getOperationslovVar": {
+      "type": "object[]"
+    },
+    "getPartnerTypeVar": {
+      "type": "object[]"
+    },
+    "isLocked": {
+      "type": "string",
+      "defaultValue": "N"
+    },
+    "menuValue": {
+      "type": "string[]",
+      "defaultValue": "[[$variables.columns.map(op=>op.field)]]",
+      "onValueChanged": {
+        "chains": [
+          {
+            "parameters": {
+              "event": "{{ $event }}"
+            },
+            "chain": "menuValueListener"
+          }
+        ]
+      }
+    },
+    "columnAll": {
+      "type": "object[]",
+      "defaultValue": "[[ [\n    {\n        \"headerText\": $application.translations.appBundle.table_fpn_id,\n        \"field\": \"fpn_id\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_partner,\n        \"field\": \"partner_name\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_financial_plan,\n        \"field\": \"fpn_code\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_budget,\n        \"field\": \"total_budget\",\n        \"style\": \"text-align: right;\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_modified_by,\n        \"field\": \"last_updated_by\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_modified_date,\n        \"field\": \"last_updated_date\",\n\"template\": \"date\",\n\"sortable\":\"enabled\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_fpn_status,\n        \"field\": \"fpn_status\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.menu_button_poNumber,\n        \"field\": \"po_number\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_contractnumber,\n        \"field\": \"contract_number\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.menu_button_accumulatedExpenses,\n        \"field\": \"accumulated_expenses\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_header_negotiated_budget,\n        \"field\": \"total_negotiated_budget\",\n\"style\": \"text-align: right;\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.table_action,\n        \"field\": \"action2\",\n        \"template\": \"actionColumn\",\n        \"width\": 255,\n        \"sortable\": \"disabled\",\n        \"resizable\": \"enabled\"\n    }\n] ]]"
+    },
+    "columnOptions": {
+      "type": "object[]",
+      "defaultValue": "[[ [\n    {\n        \"headerText\": $application.translations.appBundle.label_contractnumber,\n        \"field\": \"contract_number\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.menu_button_accumulatedExpenses,\n        \"field\": \"accumulated_expenses\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.menu_button_poNumber,\n        \"field\": \"po_number\"\n    },\n   {\n        \"headerText\": $application.translations.appBundle.table_header_negotiated_budget,\n        \"field\": \"total_negotiated_budget\",\n   \"style\": \"text-align: right;\",\n        \"resizable\": \"enabled\"\n    },\n    {\n    \"headerText\":$application.translations.appBundle.table_modified_by,\n        \"field\": \"last_updated_by\"\n    },\n    {\n    \"headerText\":$application.translations.appBundle.table_modified_date,\n        \"field\": \"last_updated_date\",\n \"template\": \"date\",\n\"sortable\":\"enabled\"\n    },\n    {\n    \"headerText\":$application.translations.appBundle.table_partner,\n        \"field\": \"partner_name\"\n    }\n] ]]"
+    },
+    "columns": {
+      "type": [
+        {
+          "field": "string",
+          "frozenEdge": "string",
+          "headerText": "string",
+          "resizable": "string",
+          "sortable": "string",
+          "style": "string",
+          "template": "string",
+          "width": "any"
+        }
+      ],
+      "defaultValue": "[[ [\n    {\n        \"headerText\":$application.translations.appBundle.table_action,\n        \"field\": \"action2\",\n        \"template\": \"actionColumn\",\n        \"sortable\": \"disabled\",\n        \"resizable\": \"enabled\"\n    },\n     {\n        \"headerText\":$application.translations.appBundle.table_financial_plan,\n        \"field\": \"fpn_code\",\n        \"resizable\": \"enabled\"\n    },\n  \n    {\n        \"headerText\":$application.translations.appBundle.table_budget,\n        \"field\": \"total_budget\",\n        \"style\": \"text-align: right;\",\n        \"resizable\": \"enabled\"\n    },\n    {\n        \"headerText\":$application.translations.appBundle.table_fpn_status,\n        \"field\": \"fpn_status\",\n        \"resizable\": \"enabled\"\n    }\n] ]]"
+    },
+    "financialPlanearray": {
+      "type": [
+        {
+          "Budget": "string",
+          "FinancialPlan": "string",
+          "FPNStatus": "string",
+          "ModifiedBy": "string",
+          "ModifiedDate": "string",
+          "Partners": "string"
+        }
+      ],
+      "defaultValue": [
+        {
+          "Budget": "12558",
+          "FinancialPlan": "EGY-32021Y24P012269-FPN-0001",
+          "FPNStatus": "Proposed",
+          "ModifiedBy": "Lee",
+          "ModifiedDate": "26/05/2025 20:30",
+          "Partners": "Plan Internations-EGY"
+        },
+        {
+          "Budget": "13400",
+          "FinancialPlan": "EGY-32021Y24P012269-FPN-0001",
+          "FPNStatus": "Revised",
+          "ModifiedBy": "Anna",
+          "ModifiedDate": "12/04/2025 23:30",
+          "Partners": "Plan Internations-EGY"
+        }
+      ]
+    },
+    "financialplanTab": {
+      "type": "any",
+      "defaultValue": "Tab"
+    },
+    "ojTabBar20581860342SelectedItem": {
+      "type": "string",
+      "defaultValue": "oj-tab-bar-2058186034-2-tab-1"
+    },
+    "ovBudgetYearLov": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetbudgetyearlov",
+        "responseType": "getGetbudgetyearlov",
+        "itemsPath": "items",
+        "keyAttributes": "budget_year",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "budget_year"
+          ]
+        }
+      }
+    },
+    "overviewOperationSelectedVar": {
+      "type": "any"
+    },
+    "overviewBudgetYearSelectedVar": {
+      "type": "any"
+    },
+    "overviewPartnerSelectedVar": {
+      "type": "any"
+    },
+    "overviewResultADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "any"
+      }
+    },
+    "overviewResultPDP": {
+      "type": "any"
+    },
+    "illustrationBackground": {
+      "type": "string",
+      "defaultValue": "https://static.oracle.com/cdn/fnd/gallery/2307.0.2/images/illust-welcome-banner-bg-01.png"
+    },
+    "illustrationForeground": {
+      "type": "string",
+      "defaultValue": "https://static.oracle.com/cdn/fnd/gallery/2307.0.2/images/illust-welcome-banner-fg-01.png"
+    },
+    "imageStretch": {
+      "type": "string",
+      "defaultValue": "none"
+    },
+    "mobileImage": {
+      "type": "string",
+      "defaultValue": "on"
+    },
+    "ojTabBar20581860341SelectedItem": {
+      "type": "string",
+      "defaultValue": "oj-tab-bar-2058186034-1-tab-1"
+    },
+    "operation": {
+      "type": "string"
+    },
+    "overviewResultSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getSearchoverview",
+        "responseType": "getSearchoverview",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_year": "{{ $variables.searchPayloadButton.budgetYear }}",
+          "p_operation": "{{ $variables.searchPayloadButton.operation }}",
+          "p_partner_id": "{{ $variables.searchPayloadButton.partner }}"
+        }
+      },
+      "input": "none"
+    },
+    "ovOperationLov": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetoperationslov",
+        "responseType": "getGetoperationslov",
+        "itemsPath": "items",
+        "keyAttributes": "operation_code",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "operation_name"
+          ]
+        },
+        "uriParameters": {
+          "p_security_context": "{{ $variables.searchPayloadButton.operation }}"
+        }
+      }
+    },
+    "ovOperationLovADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.getOperationslovVar }}",
+        "keyAttributes": "operation_code",
+        "textFilterAttributes": [
+          "operation_name"
+        ]
+      }
+    },
+    "ovPartnerLov": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getGetpartnerlov",
+        "responseType": "getGetpartnerlov",
+        "itemsPath": "items",
+        "keyAttributes": "partner_number",
+        "transformsContext": {
+          "vb-textFilterAttributes": [
+            "partner_name"
+          ]
+        },
+        "uriParameters": {
+          "poperation": "$variables.overviewOperationSelectedVar"
+        }
+      },
+      "input": "none"
+    },
+    "ovPartnerLovADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.getPartnerTypeVar }}",
+        "keyAttributes": "partner_number",
+        "textFilterAttributes": [
+          "partner_name"
+        ]
+      }
+    },
+    "ovUserInfo": {
+      "type": {
+        "checked_out_fpns": "string",
+        "given_name": "string",
+        "login_time": "string",
+        "role": "string",
+        "security_context": "string",
+        "security_context_code": "string",
+        "title": "string"
+      }
+    },
+    "pageTitle": {
+      "type": "string",
+      "defaultValue": "Overview"
+    },
+    "pieChartADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "any"
+      }
+    },
+    "riskRatingLovValue": {
+      "type": "string"
+    },
+    "riskRatingSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getLinestatus",
+        "responseType": "riskRatingStatusType",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_lookup_type": "ESSENTIAL_CONTROLS"
+        },
+        "keyAttributes": "lookup_values"
+      }
+    },
+    "riskRatingValueObj": {
+      "type": {
+        "lookup_value_id": "number",
+        "lookup_values": "string"
+      }
+    },
+    "searchPayload": {
+      "type": {
+        "budgetYear": "string",
+        "operation": "string",
+        "partner": "string"
+      }
+    },
+    "searchPayloadButton": {
+      "type": {
+        "budgetYear": "string",
+        "operation": "string",
+        "partner": "string"
+      }
+    },
+    "selectedAccount": {
+      "type": "any[]"
+    },
+    "selectedDSaccount": {
+      "type": "any[]"
+    },
+    "selectedDSaccountADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "directSharedTableType",
+        "keyAttributes": "account_id"
+      }
+    },
+    "selectedISaccount": {
+      "type": "any[]"
+    },
+    "selectedISaccountADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "tempindirectsuppType",
+        "keyAttributes": "account_id"
+      }
+    },
+    "selectedStatus": {
+      "type": "string"
+    },
+    "sharedCostLovObj": {
+      "type": {
+        "lookup_type_id": "number",
+        "lookup_value_id": "number",
+        "lookup_values": "string"
+      }
+    },
+    "sharedCostLovValue": {
+      "type": "string"
+    },
+    "sharedCostSDP": {
+      "type": "vb/ServiceDataProvider",
+      "defaultValue": {
+        "endpoint": "pfmGateway/getLinestatus",
+        "responseType": "getLinestatusidsType",
+        "itemsPath": "items",
+        "uriParameters": {
+          "p_lookup_type": "INDIRECT_SHARED_COST"
+        },
+        "keyAttributes": "lookup_values"
+      }
+    },
+    "sharedCostTypeId": {
+      "type": "number"
+    },
+    "showPrepaymentBtn": {
+      "type": "boolean"
+    },
+    "steps": {
+      "type": "object[]",
+      "defaultValue": "[[ [{\"id\":\"0\",\"label\":$application.translations.appBundle.train_label_scoped,\"disabled\":true},{\"id\":\"1\",\"label\":$application.translations.appBundle.train_label_proposed,\"disabled\":true},{\"id\":\"2\",\"label\":$application.translations.appBundle.train_label_endorsedrevised,\"disabled\":true},{\"id\":\"3\",\"label\":$application.translations.appBundle.train_label_agreed,\"disabled\":true},{\"id\":\"4\",\"label\":$application.translations.appBundle.train_label_approved,\"disabled\":true}] ]]"
+    },
+    "selectedAccount_forDelete": {
+      "type": "any[]"
+    },
+    "selectedAccountTableADP": {
+      "type": "vb/ArrayDataProvider2"
+    },
+    "selectedADP": {
+      "type": "any[]"
+    },
+    "selectedDataTableADP": {
+      "type": "vb/ArrayDataProvider2"
+    },
+    "selectManyDelete": {
+      "type": "any[]"
+    },
+    "selectManyDeleteADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getAccountsDelete",
+        "keyAttributes": "id",
+        "textFilterAttributes": [
+          "accountCode"
+        ]
+      }
+    },
+    "tableColumnArray": {
+      "type": "object[]",
+      "defaultValue": "[[ [\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrOutput,\n        \"field\": \"outputCode\",\n        \"resizable\": \"enabled\",\n        \"width\": \"400px\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_fpnValue,\n        \"field\": \"baseLine\",\n        \"width\": \"120px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\":  $application.translations.appBundle.label_pfrPISC,\n        \"field\": \"psc\",\n        \"width\": \"100px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrDS,\n        \"field\": \"ds\",\n        \"width\": \"100px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_fpnValue,\n        \"field\": \"value\",\n        \"width\": \"120px\",\n        \"resizable\": \"enabled\",\n        \"headerClassName\": \"oj-sm-align-items-start\",\n        \"className\": \"oj-sm-text-align-end\"\n    },\n    {\n        \"headerText\": $application.translations.appBundle.label_pfrComments,\n        \"field\": \"comments\",\n        \"width\": \"400px\",\n        \"resizable\": \"enabled\",\n        \"className\": \"comments-col\"\n    },\n    {\n        \"headerText\":  $application.translations.appBundle.label_pfrLineStatus,\n        \"field\": \"lineStatus\",\n        \"resizable\": \"enabled\",\n        \"width\": \"150px\"\n    }\n] ]]"
+    },
+    "temptableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "gettestTemp",
+        "keyAttributes": "fpn_id"
+      }
+    },
+    "testVariable": {
+      "type": "object[]"
+    },
+    "treeTableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "getGetfpnfulldetails",
+        "keyAttributes": "fpn_id"
+      }
+    },
+    "unclockDetails": {
+      "type": {
+        "activity_instance_id": "string",
+        "instance_id": "string",
+        "is_locked": "string",
+        "locked_by": "string",
+        "task_id": "string",
+        "unlocked_by": "string"
+      }
+    },
+    "userInfoObj": {
+      "type": {
+        "BUCode": "string",
+        "FirstName": "string",
+        "LastName": "string",
+        "OperationCode": "string",
+        "OperationName": "string",
+        "RoleName": "string",
+        "Salutation": "string"
+      }
+    },
+    "userProfileinput": {
+      "type": {
+        "userID": "string",
+        "userToken": "string"
+      }
+    },
+    "valid": {
+      "type": "string"
+    },
+    "validationColor": {
+      "type": "string"
+    },
+    "valuefieldValidation": {
+      "type": "string"
+    },
+    "variable1": {
+      "type": "string"
+    },
+    "reallocationRequired": {
+      "type": "string"
+    }
+
+  },
+  "metadata": {
+    "dynamicContainerMetadata": {
+      "type": "vb/ContainerMetadataProviderDescriptor"
+    }
+  },
+  "types": {
+    "@decorators.directSharedTableType": {
+      "endpoint": "getGetfpnfulldetails",
+      "service": "pfmORDS",
+      "path": "response-_-items[0]-_-fpn-_-direct_shared[0]"
+    },
+    "@decorators.dsAccountsType": {
+      "endpoint": "getAccountsGet",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.dsStatuslovType": {
+      "endpoint": "getLinestatuslov",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getAccounts": {
+      "endpoint": "getAccounts",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getAccountsGetResponse": {
+      "endpoint": "getAccountsGet",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getAccountsGetResponse2": {
+      "endpoint": "getAccountsGet",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getAccountsGetResponse3": {
+      "endpoint": "getAccountsGet",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getAccountstatuslov": {
+      "endpoint": "getAccountstatuslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getcommentsFpnType": {
+      "endpoint": "getGetcommentsFpn",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getdpcomments": {
+      "endpoint": "getAccounts_comments",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getDSAccounts": {
+      "endpoint": "getAccounts",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getDSAccountstatuslov": {
+      "endpoint": "getAccountstatuslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getdsFpnComments": {
+      "endpoint": "getFpnCommentsDs",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getDSLinestatus": {
+      "endpoint": "getLinestatus",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getDsReallocationAccountstatuslov": {
+      "endpoint": "getAccountstatuslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getFpnChangelog": {
+      "endpoint": "getFpnChangelog",
+      "service": "pfmGateway",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.getFpnChangelogType": {
+      "endpoint": "getFpnChangelog",
+      "service": "pfmGateway",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.getFpncomments": {
+      "endpoint": "getFpncomments",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getGetbudgetyearlov": {
+      "endpoint": "getGetbudgetyearlov",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getGetBudgetYearResponse": {
+      "endpoint": "getGetBudgetYear",
+      "service": "stock_Response_API",
+      "path": "response"
+    },
+    "@decorators.getGetBudgetYearResponse2": {
+      "endpoint": "getGetBudgetYear",
+      "service": "stock_Response_API",
+      "path": "response"
+    },
+    "@decorators.getGetcontract_number": {
+      "endpoint": "getGetcontract_number",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getGetfpn_details": {
+      "endpoint": "getGetfpn_details",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getGetfpnfulldetails": {
+      "endpoint": "getGetfpnfulldetails",
+      "service": "pfmORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.getGetfpnstatus": {
+      "endpoint": "getGetfpnstatus",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getGetfpnvalues": {
+      "endpoint": "getGetfpnvalues",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getGetoperationslov": {
+      "endpoint": "getGetoperationslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getGetpartnerlov": {
+      "endpoint": "getGetpartnerlov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getisAccounts": {
+      "endpoint": "getAccounts",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getLanguageResponse": {
+      "endpoint": "getLanguage",
+      "service": "stock_Response_API",
+      "path": "response"
+    },
+    "@decorators.getLinestatus": {
+      "endpoint": "getLinestatus",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getLinestatusDPType": {
+      "endpoint": "getLinestatus",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getLinestatusidsType": {
+      "endpoint": "getLinestatus",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getLinestatuslovResponse": {
+      "endpoint": "getLinestatuslov",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getLinestatuslovResponse2": {
+      "endpoint": "getLinestatuslov",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.getMultiAccountLinestatuslov": {
+      "endpoint": "getAccountstatuslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getReallocationAccountstatuslov": {
+      "endpoint": "getAccountstatuslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getReallocationAccountstatuslovType": {
+      "endpoint": "getAccountstatuslov",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getSearchoverview": {
+      "endpoint": "getSearchoverview",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.getTemp": {
+      "endpoint": "getTemp",
+      "service": "pfmORDS",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.getTreetable": {
+      "endpoint": "getTreetable",
+      "service": "stock_Response_API",
+      "path": "response"
+    },
+    "@decorators.indirectSupportType": {
+      "endpoint": "getGetfpnfulldetails",
+      "service": "pfmORDS",
+      "path": "response-_-items[0]-_-fpn-_-indirect_support[0]"
+    },
+    "@decorators.ISAccountsType": {
+      "endpoint": "getAccountsGet",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.postRetrieveBySearch": {
+      "endpoint": "postRetrieveBySearch",
+      "service": "OICService",
+      "path": "response-_-items[0]"
+    },
+    "@decorators.riskRatinglovType": {
+      "endpoint": "getLinestatuslov",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.riskRatingStatusType": {
+      "endpoint": "getLinestatus",
+      "service": "pfmGateway",
+      "path": "response"
+    },
+    "@decorators.sharedCostLovType": {
+      "endpoint": "getLinestatuslov",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "@decorators.test": {
+      "endpoint": "getTemp",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "directSharedTableType": {
+      "account_description": "string",
+      "account_id": "number",
+      "account_line_amount": "number",
+      "account_line_comments": "string",
+      "account_negotiated_amount": "any",
+      "account_number": "number",
+      "account_status_code": "string",
+      "fpn_ds_id": "number",
+      "fpn_id": "number"
+    },
+    "getAccounts": {
+      "items": [
+        {
+          "account_id": "number",
+          "account_number": "number",
+          "account_number_description": "string"
+        }
+      ]
+    },
+    "getAccountstatuslov": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getdpcomments": {
+      "items": [
+        {
+          "comments": "string",
+          "created_by": "string",
+          "created_date": "string",
+          "fpn_account_id": "number",
+          "last_updated_by": "string",
+          "last_updated_date": "string"
+        }
+      ]
+    },
+    "getDSAccounts": {
+      "items": [
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_number": "number",
+          "account_number_description": "string",
+          "account_type": "string"
+        }
+      ]
+    },
+    "getDSAccountstatuslov": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getdsFpnComments": {
+      "items": [
+        {
+          "comments": "string",
+          "created_by": "string",
+          "created_date": "string",
+          "fpn_ds_id": "number",
+          "last_updated_by": "string",
+          "last_updated_date": "string"
+        }
+      ]
+    },
+    "getDSLinestatus": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getDsReallocationAccountstatuslov": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getFpnChangelog": {
+      "date": "string",
+      "document": "string",
+      "field": "string",
+      "field_changed": "string",
+      "new_value": "string",
+      "object": "string",
+      "old_value": "string",
+      "time": "string",
+      "user": "string",
+      "version": "number"
+    },
+    "getFpnChangelogType": {
+      "account_number": "number",
+      "action_type": "string",
+      "document": "string",
+      "new_status": "string",
+      "new_value": "number",
+      "object": "string",
+      "old_status": "string",
+      "old_value": "number",
+      "time": "string",
+      "user": "string",
+      "version": "number"
+    },
+    "getFpncomments": {
+      "items": [
+        {
+          "comments": "string",
+          "created_by": "string",
+          "created_date": "string",
+          "last_updated_by": "string",
+          "last_updated_date": "string"
+        }
+      ]
+    },
+    "getisAccounts": {
+      "items": [
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_number": "number",
+          "account_type": "string"
+        }
+      ]
+    },
+    "getLinestatus": {
+      "items": [
+        {
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getLinestatusDPType": {
+      "items": [
+        {
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getLinestatusidsType": {
+      "items": [
+        {
+          "indirect_lookup_values": "string",
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+
+        }
+      ]
+    },
+    "getMultiAccountLinestatuslov": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getReallocationAccountstatuslov": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getReallocationAccountstatuslovType": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "postRetrieveBySearch": {
+      "accumulated_expenses": "number",
+      "budget_year": "number",
+      "contract_number": "string",
+      "fpn_code": "string",
+      "fpn_id": "number",
+      "fpn_status": "string",
+      "is_locked": "string",
+      "last_updated_by": "string",
+      "last_updated_date": "string",
+      "locked_by": "string",
+      "operation_name": "string",
+      "partner_name": "string",
+      "po_number": "string",
+      "total_budget": "string",
+      "total_fpn_budget": "number"
+    },
+    "riskRatingStatusType": {
+      "items": [
+        {
+          "indirect_lookup_values": "string",
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+
+        }
+      ]
+    },
+    "rowsPerPageType": {
+      "id": "number",
+      "label": "string"
+    },
+    "tempdirectsharedType": {
+      "account": "number",
+      "account_description": "string",
+      "account_id": "number",
+      "account_line_amount": "number",
+      "account_linec_omments": "string",
+      "account_negotiated_amount": "any",
+      "account_status_code": "string",
+      "fpn_ds_id": "number",
+      "fpn_id": "number"
+    },
+    "dsAccountsType": {
+      "items": [
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_number": "number",
+          "account_type": "string"
+        }
+      ]
+    },
+    "dsStatuslovType": {
+      "items": [
+        {
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "financialplanADPType": {
+      "Budget": "string",
+      "FinancialPlan": "string",
+      "FPNStatus": "string",
+      "ModifiedBy": "string",
+      "ModifiedDate": "string",
+      "Partners": "string"
+    },
+    "getAccountsGetResponse": {
+      "items": [
+        {
+          "account_id": "number",
+          "account_number": "number"
+        }
+      ]
+    },
+    "getAccountsGetResponse2": {
+      "items": [
+        {
+          "account_id": "number",
+          "account_number": "number"
+        }
+      ]
+    },
+    "getAccountsGetResponse3": {
+      "items": [
+        {
+          "account_id": "number",
+          "account_number": "number"
+        }
+      ]
+    },
+    "getcommentsFpnType": {
+      "items": [
+        {
+          "comments": "string",
+          "created_by": "string",
+          "created_date": "string"
+        }
+      ]
+    },
+    "getGetbudgetyearlov": {
+      "items": [
+        {
+          "budget_year": "number"
+        }
+      ]
+    },
+    "getGetBudgetYearResponse": {
+      "items": [
+        {
+          "ID": "string",
+          "status": "string"
+        }
+      ]
+    },
+    "getGetBudgetYearResponse2": {
+      "items": [
+        {
+          "ID": "string",
+          "status": "string"
+        }
+      ]
+    },
+    "getGetcontract_number": {
+      "items": [
+        {
+          "contract_number": "string"
+        }
+      ]
+    },
+    "getGetfpn_details": {
+      "items": [
+        {
+          "accumulated_expenses": "number",
+          "budget_year": "number",
+          "contract_number": "string",
+          "fpn_code": "string",
+          "fpn_id": "number",
+          "fpn_status": "string",
+          "last_updated_by": "string",
+          "last_updated_date": "string",
+          "operation_name": "string",
+          "partner_name": "string",
+          "po_number": "any",
+          "total_budget": "string",
+          "total_fpn_budget": "number",
+          "is_locked": "string",
+          "is_locked_by": "string",
+          "total_budget_in_usd": "string"
+        }
+      ]
+    },
+    "getGetfpnfulldetails": {
+      "fpn": {
+        "budget_year": "number",
+        "contract_currency_code": "string",
+        "contract_number": "string",
+        "direct_shared": [
+          {
+            "account_description": "string",
+            "account_id": "number",
+            "account_line_amount": "number",
+            "account_linecomments": "string",
+            "account_negotiated_amount": "any",
+            "account_number": "number",
+            "account_status_code": "string",
+            "fpn_ds_id": "number"
+          }
+        ],
+        "fpn_code": "string",
+        "fpn_comments": "string",
+        "fpn_id": "number",
+        "fpn_status": "string",
+        "indirect_support": [
+          {
+            "account_description": "string",
+            "account_id": "number",
+            "account_number": "number",
+            "fpn_isc_id": "number",
+            "lookup_type_id": "number",
+            "partner_percentage": "number",
+            "partner_type": "string",
+            "total_value": "number"
+          }
+        ],
+        "operation_code": "string",
+        "operation_name": "string",
+        "outputs": [
+          {
+            "baseLine": "number",
+            "comments": "any",
+            "ds": "any",
+            "fpn_output_id": "number",
+            "lineStatus": "string",
+            "locations": [
+              {
+                "accounts": [
+                  {
+                    "accountCode": "number",
+                    "accountDescription": "string",
+                    "comments": "string",
+                    "fpn_location_id": "number",
+                    "fpn_output_id": "number",
+                    "id": "number",
+                    "lineStatus": "string",
+                    "loc": "string",
+                    "outputCode": "string",
+                    "value": "number",
+                    "linestatus": "string",
+                    "account_comments": "string",
+                    "account_description": "string",
+                    "account_number": "number",
+                    "account_status_code": "string",
+                    "account_value": "number",
+                    "fpn_account_id": "number"
+                  }
+                ],
+                "baseLine": "string",
+                "comments": "any",
+                "ds": "any",
+                "fpn_location_id": "number",
+                "fpn_output_id": "number",
+                "lineStatus": "string",
+                "locationCode": "string",
+                "outputCode": "string",
+                "psc": "any",
+                "value": "any",
+                "linestatus": "string",
+                "fpn_location_code": "string",
+                "location_line_comments": "any",
+                "location_status_code": "string",
+                "output_location_direct_programme_cost": "any",
+                "output_location_direct_shared_cost": "any",
+                "output_location_indirect_support_cost": "any",
+                "output_location_line_amount": "any",
+                "output_location_original_budget": "string"
+              }
+            ],
+            "outputCode": "string",
+            "outputDescription": "string",
+            "psc": "any",
+            "value": "any",
+            "linestatus": "string",
+            "fpn_output_code": "string",
+            "output_description": "string",
+            "output_line_comments": "any",
+            "output_status_code": "string",
+            "output_total_direct_programme_cost": "any",
+            "output_total_direct_shared_cost": "any",
+            "output_total_indirect_support_cost": "any",
+            "output_totalbudget": "number"
+          }
+        ],
+        "partner_name": "string",
+        "partner_site_code": "string",
+        "po_number": "any",
+        "total_direct_programme_cost": "any",
+        "total_direct_shared_cost": "any",
+        "total_expenses": "any",
+        "total_fpn_budget": "number",
+        "total_indirect_support_cost": "any",
+        "total_negotiated_budget": "number"
+      }
+    },
+    "getGetfpnstatus": {
+      "items": [
+        {
+          "percentage": "string",
+          "status": "string",
+          "total": "number"
+        }
+      ]
+    },
+    "getGetfpnvalues": {
+      "items": [
+        {
+          "total_expenses": "string",
+          "value": "number"
+        }
+      ]
+    },
+    "getGetoperationslov": {
+      "items": [
+        {
+          "operation_code": "string",
+          "operation_name": "string"
+        }
+      ]
+    },
+    "getGetpartnerlov": {
+      "items": [
+        {
+          "partner_name": "string",
+          "partner_number": "number"
+        }
+      ]
+    },
+    "getLanguageResponse": {
+      "accounts": [
+        {
+          "accountCode": "string"
+        }
+      ]
+    },
+    "getLinestatuslovResponse": {
+      "items": [
+        {
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getLinestatuslovResponse2": {
+      "items": [
+        {
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "getSearchoverview": {
+      "items": [
+        {
+          "budget_year": "number",
+          "id": "number",
+          "operation_name": "string",
+          "output_eo": "number",
+          "partner_name": "string",
+          "total_agreed": "number",
+          "total_approved": "number",
+          "total_inprogress": "number",
+          "total_workplans": "number",
+          "value_usd": "number"
+        }
+      ]
+    },
+    "getTemp": {
+      "fpn": {
+        "active_flag": "string",
+        "budget_year": "number",
+        "contract_currency_code": "string",
+        "contract_number": "string",
+        "cost_center": "any",
+        "cost_center_name": "any",
+        "direct_shared": [
+          {
+            "account": "number",
+            "account_description": "string",
+            "account_id": "number",
+            "account_line_amount": "number",
+            "account_linec_omments": "string",
+            "account_negotiated_amount": "any",
+            "account_status_code": "string",
+            "fpn_ds_id": "number",
+            "fpn_id": "number"
+          }
+        ],
+        "draft_submission_status": "string",
+        "fpn_code": "string",
+        "fpn_comments": "string",
+        "fpn_id": "number",
+        "fpn_major_version": "number",
+        "fpn_minor_version": "number",
+        "fpn_status_code": "string",
+        "indirect_support": [
+          {
+            "account": "number",
+            "account_description": "string",
+            "account_id": "number",
+            "fpn_id": "number",
+            "fpn_isc_id": "number",
+            "lookup_type_id": "number",
+            "shared_cost": "string",
+            "total_cost": "number"
+          }
+        ],
+        "operation_code": "string",
+        "operation_name": "string",
+        "outputs": [
+          {
+            "fpn_id": "number",
+            "fpn_output_code": "string",
+            "fpn_output_id": "number",
+            "locations": [
+              {
+                "accounts": [
+                  {
+                    "account": "number",
+                    "account_description": "string",
+                    "account_line_amount": "number",
+                    "account_line_comments": "string",
+                    "account_line_status_code": "string",
+                    "fpn_account_id": "number",
+                    "fpn_id": "number",
+                    "fpn_location_code": "string",
+                    "fpn_location_id": "number",
+                    "fpn_output_code": "string",
+                    "fpn_output_id": "number"
+                  }
+                ],
+                "fpn_id": "number",
+                "fpn_location_code": "string",
+                "fpn_location_id": "number",
+                "fpn_output_code": "string",
+                "fpn_output_id": "number",
+                "location_line_comments": "any",
+                "location_status_code": "string",
+                "output_location_direct_programme_cost": "any",
+                "output_location_direct_shared_cost": "any",
+                "output_location_indirect_support_cost": "any",
+                "output_location_original_budget": "string"
+              }
+            ],
+            "output_description": "string",
+            "output_line_comments": "any",
+            "output_status_code": "string",
+            "output_total_budget": "number",
+            "output_total_direct_programme_cost": "any",
+            "output_total_direct_shared_cost": "any",
+            "output_total_indirect_support_cost": "any"
+          }
+        ],
+        "partner_name": "string",
+        "partner_site_code": "string",
+        "po_number": "any",
+        "recalculation_required": "any",
+        "total_direct_programme_cost": "any",
+        "total_direct_shared_cost": "any",
+        "total_expenses": "any",
+        "total_fpn_budget": "number",
+        "total_indirect_support_cost": "any",
+        "total_negotiated_budget": "number",
+        "total_prepayment": "any",
+        "validation_state": "any"
+      }
+    },
+    "gettestTemp": {
+      "fpn": {
+        "award_project_number": "string",
+        "budget_flexibility": "string",
+        "business_unit": "string",
+        "fpn_id": "number",
+        "fpn_code": "string",
+        "cost_center": "any",
+        "cost_center_name": "any",
+        "in_capacity_of": "string",
+        "partner_number": "string",
+        "po_number": "any",
+        "fpn_major_version": "number",
+        "fpn_minor_version": "number",
+        "operation_name": "string",
+        "operation_code": "string",
+        "fpn_status": "string",
+        "reallocation_required": "string",
+        "total_original_budget": "number",
+        "budget_year": "number",
+        "contract_currency_code": "string",
+        "partner_name": "string",
+        "partner_site_code": "string",
+        "total_negotiated_budget": "number",
+        "total_direct_programme_cost": "any",
+        "total_direct_shared_cost": "any",
+        "total_indirect_support_cost": "any",
+        "total_expenses": "any",
+        "total_prepayment": "number",
+        "contract_number": "string",
+        "fpn_comments": "string",
+        "essential_controls": "string",
+        "validation_state": "any",
+        "active_flag": "string",
+        "recalculation_required": "any",
+        "draft_submission_status": "string",
+        "direct_shared": [
+          {
+            "fpn_id": "number",
+            "fpn_ds_id": "number",
+            "account_id": "number",
+            "account_line_amount": "number",
+            "account_negotiated_amount": "any",
+            "account_status_code": "string",
+            "account_number": "number",
+            "account_description": "string",
+            "account_line_comments": "string"
+          }
+        ],
+        "indirect_support": [
+          {
+            "fpn_isc_id": "number",
+            "fpn_id": "number",
+            "lookup_type_id": "number",
+            "partner_percentage": "number",
+            "partner_type": "string",
+            "shared_cost": "string",
+            "total_value": "number",
+            "account_id": "number",
+            "account_number": "number",
+            "account_description": "string"
+
+          }
+        ],
+        "outputs": [
+          {
+            "fpn_id": "number",
+            "fpn_output_id": "number",
+            "last_baseline": "number",
+            "outputCode": "string",
+            "outputDescription": "string",
+            "baseLine": "number",
+            "comments": "any",
+            "lineStatus": "string",
+            "total_expenses": "number",
+            "totalCost": "number",
+            "value": "number",
+            "ds": "number",
+            "psc": "number",
+            "locations": [
+              {
+                "fpn_id": "number",
+                "fpn_output_id": "number",
+                "fpn_location_id": "number",
+                "last_baseline": "number",
+                "location_description": "string",
+                "locationCode": "string",
+                "outputCode": "string",
+                "baseLine": "number",
+                "total_expenses": "number",
+                "totalCost": "number",
+                "value": "number",
+                "ds": "number",
+                "psc": "number",
+                "lineStatus": "string",
+                "comments": "any",
+                "accounts": [
+                  {
+                    "account_category": "string",
+                    "fpn_id": "number",
+                    "fpn_location_id": "number",
+                    "last_baseline": "number",
+                    "loc": "string",
+                    "fpn_output_id": "number",
+                    "outputCode": "string",
+                    "id": "number",
+                    "total_expenses": "number",
+                    "value": "number",
+                    "accountCode": "number",
+                    "accountDescription": "string",
+                    "comments": "any",
+                    "lineStatus": "string"
+                  }
+                ]
+
+              }
+            ]
+
+          }
+        ]
+
+      }
+    },
+    "getTreetable": {
+      "baseLine": "string",
+      "comments": "string",
+      "ds": "number",
+      "lineStatus": "string",
+      "locations": [
+        {
+          "accounts": [
+            {
+              "accountCode": "string",
+              "accountDescription": "string",
+              "comments": "string",
+              "lineStatus": "string",
+              "loc": "string",
+              "value": "number"
+            }
+          ],
+          "baseLine": "string",
+          "comments": "string",
+          "ds": "number",
+          "lineStatus": "string",
+          "locationCode": "string",
+          "psc": "number",
+          "value": "number"
+        }
+      ],
+      "outputCode": "string",
+      "outputDescription": "string",
+      "psc": "number",
+      "value": "number"
+    },
+    "@decorators.getAccountsGetResponse2_copy": {
+      "endpoint": "getAccountsGet",
+      "service": "pfmORDS",
+      "path": "response"
+    },
+    "getAccountsDelete": {
+      "accountCode": "number",
+      "id": "number"
+    },
+    "indirectSupportType": {
+      "account_description": "string",
+      "account_id": "number",
+      "account_number": "number",
+      "partner_percentage": "number",
+      "partner_type": "string",
+      "total_value": "number"
+    },
+    "tempindirectsuppType": {
+      "fpn_isc_id": "number",
+      "fpn_id": "number",
+      "lookup_type_id": "number",
+      "shared_cost": "string",
+      "total_value": "number",
+      "account_id": "number",
+      "account_number": "number",
+      "account_description": "string"
+    },
+    "ISAccountsType": {
+      "items": [
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_number": "number",
+          "account_type": "string"
+        }
+      ]
+    },
+    "riskRatinglovType": {
+      "items": [
+        {
+          "indirect_lookup_values": "string",
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+
+        }
+      ]
+    },
+    "sharedCostLovType": {
+      "items": [
+        {
+          "lookup_type_id": "number",
+          "lookup_value_id": "number",
+          "lookup_values": "string"
+        }
+      ]
+    },
+    "test": {
+      "items": [
+        {
+          "fpn": {
+            "active_flag": "string",
+            "budget_year": "number",
+            "contract_currency_code": "string",
+            "contract_number": "string",
+            "cost_center": "any",
+            "cost_center_name": "any",
+            "direct_shared": [
+              {
+                "account": "number",
+                "account_description": "string",
+                "account_id": "number",
+                "account_line_amount": "number",
+                "account_linec_omments": "string",
+                "account_negotiated_amount": "any",
+                "account_status_code": "string",
+                "fpn_ds_id": "number",
+                "fpn_id": "number"
+              }
+            ],
+            "draft_submission_status": "string",
+            "fpn_code": "string",
+            "fpn_comments": "string",
+            "fpn_id": "number",
+            "fpn_major_version": "number",
+            "fpn_minor_version": "number",
+            "fpn_status_code": "string",
+            "indirect_support": [
+              {
+                "account": "number",
+                "account_description": "string",
+                "account_id": "number",
+                "fpn_id": "number",
+                "fpn_isc_id": "number",
+                "lookup_type_id": "number",
+                "shared_cost": "string",
+                "total_cost": "number"
+              }
+            ],
+            "operation_code": "string",
+            "operation_name": "string",
+            "outputs": [
+              {
+                "fpn_id": "number",
+                "fpn_output_code": "string",
+                "fpn_output_id": "number",
+                "locations": [
+                  {
+                    "accounts": [
+                      {
+                        "account": "number",
+                        "account_description": "string",
+                        "account_line_amount": "number",
+                        "account_line_comments": "string",
+                        "account_line_status_code": "string",
+                        "fpn_account_id": "number",
+                        "fpn_id": "number",
+                        "fpn_location_code": "string",
+                        "fpn_location_id": "number",
+                        "fpn_output_code": "string",
+                        "fpn_output_id": "number"
+                      }
+                    ],
+                    "fpn_id": "number",
+                    "fpn_location_code": "string",
+                    "fpn_location_id": "number",
+                    "fpn_output_code": "string",
+                    "fpn_output_id": "number",
+                    "location_line_comments": "any",
+                    "location_status_code": "string",
+                    "output_location_direct_programme_cost": "any",
+                    "output_location_direct_shared_cost": "any",
+                    "output_location_indirect_support_cost": "any",
+                    "output_location_original_budget": "string"
+                  }
+                ],
+                "output_description": "string",
+                "output_line_comments": "any",
+                "output_status_code": "string",
+                "output_total_budget": "number",
+                "output_total_direct_programme_cost": "any",
+                "output_total_direct_shared_cost": "any",
+                "output_total_indirect_support_cost": "any"
+              }
+            ],
+            "partner_name": "string",
+            "partner_site_code": "string",
+            "po_number": "any",
+            "recalculation_required": "any",
+            "total_direct_programme_cost": "any",
+            "total_direct_shared_cost": "any",
+            "total_expenses": "any",
+            "total_fpn_budget": "number",
+            "total_indirect_support_cost": "any",
+            "total_negotiated_budget": "number",
+            "total_prepayment": "any",
+            "validation_state": "any"
+          }
+        }
+      ]
+    }
+
+  },
+  "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "onClickEditButton",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction10": {
+      "chains": [
+        {
+          "chain": "unclockActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction11": {
+      "chains": [
+        {
+          "chain": "ClaimActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction12": {
+      "chains": [
+        {
+          "chain": "commentsHistoryButtonActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction13": {
+      "chains": [
+        {
+          "chain": "SubmitButtonActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction14": {
+      "chains": [
+        {
+          "chain": "onClickChangeScope",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction15": {
+      "chains": [
+        {
+          "chain": "DpCommentsActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction16": {
+      "chains": [
+        {
+          "chain": "dsCommentsActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction17": {
+      "chains": [
+        {
+          "chain": "prepaymentButton",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction18": {
+      "chains": [
+        {
+          "chain": "onClickCreatePFR",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction19": {
+      "chains": [
+        {
+          "chain": "runValidationButtonActionChain1",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chain": "SaveAssignAccount"
+        }
+      ]
+    },
+    "buttonAction20": {
+      "chains": [
+        {
+          "chain": "viewIconButtonActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "buttonAction21": {
+      "chains": [
+        {
+          "chain": "reallocatioAcceptActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction22": {
+      "chains": [
+        {
+          "chain": "cancelReallocationRequest",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction23": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain3",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction24": {
+      "chains": [
+        {
+          "chain": "onClickApproveReallocationRequest",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction25": {
+      "chains": [
+        {
+          "chain": "onClickRejectReallocationRequest",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction26": {
+      "chains": [
+        {
+          "chain": "PrintActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}",
+            "fpnCode": "[[ $variables.getGetfpn_detailsVar.fpn_code ]]",
+            "status": "[[ $variables.getGetfpn_detailsVar.fpn_status ]]",
+            "mode": "PRINT"
+          }
+        }
+      ]
+    },
+    "buttonAction3": {
+      "chains": [
+        {
+          "chain": "updateLineStatus"
+        }
+      ]
+    },
+    "buttonAction4": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction5": {
+      "chains": [
+        {
+          "chain": "recalculateButton"
+        }
+      ]
+    },
+    "buttonAction6": {
+      "chains": [
+        {
+          "chain": "DSaddAccountButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction7": {
+      "chains": [
+        {
+          "chain": "DSupdateStatusActionChain"
+        }
+      ]
+    },
+    "buttonAction8": {
+      "chains": [
+        {
+          "chain": "ISAddButtonActionChain"
+        }
+      ]
+    },
+    "buttonAction9": {
+      "chains": [
+        {
+          "chain": "saveasdraftButton"
+        }
+      ]
+    },
+    "cancelBtnAction": {
+      "chains": [
+        {
+          "chain": "cancelButtonActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "changelogdialogSpPrimaryAction": {
+      "chains": [
+        {
+          "chain": "changeScopeSubmitActionChain",
+          "parameters": {
+            "event": "{{$event}}"
+          }
+        }
+      ]
+    },
+    "exportDataClick": {
+      "chains": [
+        {
+          "chain": "ExportDataClickChain",
+          "parameters": {
+            "event": "{{$event}}"
+          }
+        }
+      ]
+    },
+    "filePickerSelect": {
+      "chains": [
+        {
+          "chain": "FilePickerSelectChain",
+          "parameters": {
+            "files": "[[ Array.prototype.slice.call($event.detail.files) ]]"
+          }
+        }
+      ]
+    },
+    "finacialPlanSearchTableColumns": {
+      "chains": [
+        {
+          "chain": "fpsTableColumnsChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "columns": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "fpBudgetYearIdValueItems": {
+      "chains": [
+        {
+          "chain": "fpBudgetYearReset",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "valueItems": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "fpContractNumberIdValueItems": {
+      "chains": [
+        {
+          "chain": "fpContractReset",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "valueItems": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "fpPartnerIdValueItems": {
+      "chains": [
+        {
+          "chain": "fpPartnerReset",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "valueItems": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "icaRiskRatingValueItem": {
+      "chains": [
+        {
+          "chain": "riskRatingValueChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}",
+            "valueItem": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "iconClick": {
+      "chains": [
+        {
+          "chain": "onClickExportFPNData"
+        }
+      ]
+    },
+    "lockopenIconClick": {
+      "chains": [
+        {
+          "chain": "lockIconClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}",
+            "fpn_id": "{{$current.row.fpn_id}}"
+          }
+        }
+      ]
+    },
+    "menuMenuAction": {
+      "chains": [
+        {
+          "chain": "MenuMenuActionChain",
+          "parameters": {
+            "menuId": "{{$event.detail.selectedValue}}"
+          }
+        }
+      ]
+    },
+    "menuMenuAction2": {
+      "chains": [
+        {
+          "chain": "fpSeachActionGroup",
+          "parameters": {
+            "event": "{{$event}}",
+            "selectedValue": "{{$event.detail.selectedValue}}",
+            "menuId": "{{$event.detail.selectedValue}}"
+          }
+        }
+      ]
+    },
+    "ojTabBar20581860341Selection": {
+      "chains": [
+        {
+          "chain": "TabBarSelectionChangeChain",
+          "parameters": {
+            "selection": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "ovBudgetYearIdValueItems": {
+      "chains": [
+        {
+          "chain": "budgetYearReset",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "valueItems": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "overviewTableIdColumns": {
+      "chains": [
+        {
+          "chain": "ovTableColumnsChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "columns": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "ovPartnerIdValueItems": {
+      "chains": [
+        {
+          "chain": "SelectValueItemsChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "valueItems": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "rowExpanderCollapse": {
+      "chains": [
+        {
+          "chain": "RowExpanderCollapseChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "rowKey": "{{$event.detail.rowKey}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "rowExpanderExpand": {
+      "chains": [
+        {
+          "chain": "RowExpanderExpandChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "rowKey": "{{$event.detail.rowKey}}",
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "searchBtnAction": {
+      "chains": [
+        {
+          "chain": "OverviewSearchButtonActionChain"
+        }
+      ]
+    },
+    "searchBtnAction2": {
+      "chains": [
+        {
+          "chain": "fpSearchButtonActionChain"
+        }
+      ]
+    },
+    "selectValue": {
+      "chains": [
+        {
+          "chain": "OverviewOperationValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue10": {
+      "chains": [
+        {
+          "chain": "DSaddAcountValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue11": {
+      "chains": [
+        {
+          "chain": "ISaddAcountValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue2": {
+      "chains": [
+        {
+          "chain": "OverviewBudgetYearValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue3": {
+      "chains": [
+        {
+          "chain": "OverviewPartnerValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue4": {
+      "chains": [
+        {
+          "chain": "fpBudgetYearValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue5": {
+      "chains": [
+        {
+          "chain": "fpOperationValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue6": {
+      "chains": [
+        {
+          "chain": "fpPartnerValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue7": {
+      "chains": [
+        {
+          "chain": "fpContractValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue8": {
+      "chains": [
+        {
+          "chain": "SelectValueChangeChain",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValue9": {
+      "chains": [
+        {
+          "chain": "SelectValueChangeChainDelete",
+          "parameters": {
+            "value": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "selectValueAction": {
+      "chains": [
+        {
+          "chain": "SelectValueActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "value": "{{$event.detail.value}}",
+            "itemContext": "{{$event.detail.itemContext}}",
+            "previousValue": "{{$event.detail.previousValue}}"
+          }
+        }
+      ]
+    },
+    "selectValueItem": {
+      "chains": [
+        {
+          "chain": "onSelectStatus",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "key": "{{ $current.key }}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}",
+            "valueItem": "{{ $event.detail.value }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "selectValueItem2": {
+      "chains": [
+        {
+          "chain": "SelectValueItemChangeChain1",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}",
+            "valueItem": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "sharedCostValueItem": {
+      "chains": [
+        {
+          "chain": "SelectValueItemChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}",
+            "valueItem": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "tableBeforeRowEdit": {
+      "chains": [
+        {
+          "chain": "TableBeforeRowEditChain",
+          "parameters": {
+            "rowKey": "{{$event.detail.rowContext.status.rowKey}}",
+            "rowIndex": "{{$event.detail.rowContext.status.rowIndex}}",
+            "rowData": "{{$event.detail.rowContext.componentElement.getDataForVisibleRow($event.detail.rowContext.status.rowIndex).data}}"
+          }
+        }
+      ]
+    },
+    "tableBeforeRowEdit2": {
+      "chains": [
+        {
+          "chain": "directSharedTableBeforeRowEditChain",
+          "parameters": {
+            "rowKey": "{{$event.detail.rowContext.status.rowKey}}",
+            "rowIndex": "{{$event.detail.rowContext.status.rowIndex}}",
+            "rowData": "{{$event.detail.rowContext.componentElement.getDataForVisibleRow($event.detail.rowContext.status.rowIndex).data}}"
+          }
+        }
+      ]
+    },
+    "tableBeforeRowEdit3": {
+      "chains": [
+        {
+          "chain": "ISTableBeforeRowEditChain",
+          "parameters": {
+            "rowKey": "{{$event.detail.rowContext.status.rowKey}}",
+            "rowIndex": "{{$event.detail.rowContext.status.rowIndex}}",
+            "rowData": "{{$event.detail.rowContext.componentElement.getDataForVisibleRow($event.detail.rowContext.status.rowIndex).data}}"
+          }
+        }
+      ]
+    },
+    "tableBeforeRowEditEnd": {
+      "chains": [
+        {
+          "chain": "TableBeforeRowEditEndChain",
+          "parameters": {
+            "cancelEdit": "{{$event.detail.cancelEdit}}",
+            "rowKey": "{{$event.detail.rowContext.status.rowKey}}",
+            "rowIndex": "{{$event.detail.rowContext.status.rowIndex}}",
+            "rowData": "{{$event.detail.rowContext.componentElement.getDataForVisibleRow($event.detail.rowContext.status.rowIndex).data}}"
+          }
+        }
+      ]
+    },
+    "tableBeforeRowEditEnd2": {
+      "chains": [
+        {
+          "chain": "directSharedTableBeforeRowEditEndChain",
+          "parameters": {
+            "cancelEdit": "{{$event.detail.cancelEdit}}",
+            "rowKey": "{{$event.detail.rowContext.status.rowKey}}",
+            "rowIndex": "{{$event.detail.rowContext.status.rowIndex}}",
+            "rowData": "{{$event.detail.rowContext.componentElement.getDataForVisibleRow($event.detail.rowContext.status.rowIndex).data}}"
+          }
+        }
+      ]
+    },
+    "tableBeforeRowEditEnd3": {
+      "chains": [
+        {
+          "chain": "ISTableBeforeRowEditEndChain",
+          "parameters": {
+            "cancelEdit": "{{$event.detail.cancelEdit}}",
+            "rowKey": "{{$event.detail.rowContext.status.rowKey}}",
+            "rowIndex": "{{$event.detail.rowContext.status.rowIndex}}",
+            "rowData": "{{$event.detail.rowContext.componentElement.getDataForVisibleRow($event.detail.rowContext.status.rowIndex).data}}"
+          }
+        }
+      ]
+    },
+    "tableColumns": {
+      "chains": [
+        {
+          "chain": "dpTableColumnsChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "columns": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "tableColumns2": {
+      "chains": [
+        {
+          "chain": "dsTableColumnsChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "columns": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "tableColumns3": {
+      "chains": [
+        {
+          "chain": "idsTableColumnsChangeChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "previousValue": "{{$event.detail.previousValue}}",
+            "value": "{{$event.detail.value}}",
+            "updatedFrom": "{{$event.detail.updatedFrom}}",
+            "columns": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "tableSelected": {
+      "chains": [
+        {
+          "chain": "TableSelectedChangeChain",
+          "parameters": {
+            "keys": "{{ $event.detail.value.row.values ? Array.from($event.detail.value.row.values()) : [] }}",
+            "selected": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "tableSelected2": {
+      "chains": [
+        {
+          "chain": "directSharedSelectedChangeChain",
+          "parameters": {
+            "keys": "{{ $event.detail.value.row.values ? Array.from($event.detail.value.row.values()) : [] }}",
+            "selected": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "tableSelected3": {
+      "chains": [
+        {
+          "chain": "ISTableSelectedChangeChain",
+          "parameters": {
+            "keys": "{{ $event.detail.value.row.values ? Array.from($event.detail.value.row.values()) : [] }}",
+            "selected": "{{ $event.detail.value }}"
+          }
+        }
+      ]
+    },
+    "textAreaClick": {
+      "chains": [
+        {
+          "chain": "TextAreaClickChain",
+          "parameters": {
+            "event": "{{$event}}"
+          }
+        }
+      ]
+    },
+    "uploaderrordialogSpCancel": {
+      "chains": [
+        {
+          "chain": "MessageDialogGeneralSpCancelChain",
+          "parameters": {
+            "event": "{{$event}}"
+          }
+        }
+      ]
+    },
+    "uploaderrordialogSpPrimaryAction": {
+      "chains": [
+        {
+          "chain": "onClickDownloadErrorReport",
+          "parameters": {
+            "event": "{{$event}}"
+          }
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "chain": "vbEnterListener",
+          "parameters": {}
+        }
+      ]
+    },
+    "editIconClick": {
+      "chains": [
+        {
+          "chain": "IconClickChain",
+          "parameters": {
+            "key": "{{ $current.key }}",
+            "index": "{{ $current.index }}",
+            "current": "{{ $current }}"
+          }
+        }
+      ]
+    },
+    "finacialPlanSearchTableFirstSelectedRow": {
+      "chains": [
+        {
+          "chain": "TableFirstSelectedRowChangeChain",
+          "parameters": {
+            "rowKey": "{{$event.detail.value.key}}",
+            "rowData": "{{$event.detail.value.data}}"
+          }
+        }
+      ]
+    }
+
+  },
+  "imports": {
+    "components": {
+      "oj-avatar": {
+        "path": "ojs/ojavatar"
+      },
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-c-select-multiple": {
+        "path": "oj-c/select-multiple"
+      },
+      "oj-chart": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-item": {
+        "path": "ojs/ojchart"
+      },
+      "oj-chart-series": {
+        "path": "ojs/ojchart"
+      },
+      "oj-collapsible": {
+        "path": "ojs/ojcollapsible"
+      },
+      "oj-color-spectrum": {
+        "path": "ojs/ojcolorspectrum"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-file-picker": {
+        "path": "ojs/ojfilepicker"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-highlight-text": {
+        "path": "ojs/ojhighlighttext"
+      },
+      "oj-input-date": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-date-time": {
+        "path": "ojs/ojdatetimepicker"
+      },
+      "oj-input-number": {
+        "path": "ojs/ojinputnumber"
+      },
+      "oj-input-text": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-label-value": {
+        "path": "ojs/ojlabelvalue"
+      },
+      "oj-list-view": {
+        "path": "ojs/ojlistview"
+      },
+      "oj-menu": {
+        "path": "ojs/ojmenu"
+      },
+      "oj-menu-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-menu-select-many": {
+        "path": "ojs/ojmenuselectmany"
+      },
+      "oj-option": {
+        "path": "ojs/ojoption"
+      },
+      "oj-paging-control": {
+        "path": "ojs/ojpagingcontrol"
+      },
+      "oj-progress-bar": {
+        "path": "ojs/ojprogress-bar"
+      },
+      "oj-radioset": {
+        "path": "ojs/ojradioset"
+      },
+      "oj-row-expander": {
+        "path": "ojs/ojrowexpander"
+      },
+      "oj-sample-export-data": {
+        "path": "oj-sample/export-data/loader"
+      },
+      "oj-select-many": {
+        "path": "ojs/ojselectcombobox"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-selector": {
+        "path": "ojs/ojselector"
+      },
+      "oj-sp-collection-container": {
+        "path": "oj-sp/collection-container/loader"
+      },
+      "oj-sp-message-dialog-general": {
+        "path": "oj-sp/message-dialog-general/loader"
+      },
+      "oj-sp-welcome-page": {
+        "path": "oj-sp/welcome-page/loader"
+      },
+      "oj-switcher": {
+        "path": "ojs/ojswitcher"
+      },
+      "oj-tab-bar": {
+        "path": "ojs/ojnavigationlist"
+      },
+      "oj-table": {
+        "path": "ojs/ojtable"
+      },
+      "oj-text-area": {
+        "path": "ojs/ojinputtext"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      },
+      "oj-train": {
+        "path": "ojs/ojtrain"
+      },
+      "oj-tree-view": {
+        "path": "ojs/ojtreeview"
+      },
+      "oj-validation-group": {
+        "path": "ojs/ojvalidationgroup"
+      }
+    },
+    "css": [
+      "/resources/css/redwood-overrides.css"
+    ],
+    "modules": {
+      "ojConverterNumber": {
+        "path": "ojs/ojconverter-number"
+      },
+      "ojValidationBase": {
+        "path": "ojs/ojvalidation-base"
+      },
+      "ojValidationDateTime": {
+        "path": "ojs/ojvalidation-datetime"
+      },
+      "ojValidationNumber": {
+        "path": "ojs/ojvalidation-number"
+      }
+    }
+  },
+  "templates": {}
+}

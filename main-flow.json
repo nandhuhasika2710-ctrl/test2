@@ -1,0 +1,532 @@
+{
+
+  "id": "main",
+  "description": "Flow main",
+  "defaultPage": "main-start",
+  "chains": {},
+  "services": {},
+  "types": {
+    "@decorators.directSharedTableType": {
+      "endpoint": "getPfrHeaderdetails",
+      "service": "pfmGateway",
+      "path": "response-_-items[0]-_-pfr-_-direct_shared[0]"
+    },
+    "@decorators.getPfrHeaderdetails": {
+      "endpoint": "getPfrHeaderdetails",
+      "service": "pfmGateway",
+      "path": "response-_-items[0]"
+    },
+    
+    "getPfrHeaderdetails": {
+      "pfr": {
+        "budget_year": "number",
+        "contract_currency_code": "string",
+        "contract_number": "string",
+        "created_by": "string",
+        "direct_shared": [
+          {
+            "account": "number",
+            "account_description": "string",
+            "account_line_amount": "number",
+            "account_line_comments": "string",
+            "account_line_status": "string",
+            "account_remaining_balance": "number",
+            "account_reported_expenses": "number",
+            "created_by": "string",
+            "fpn_ds_id": "number",
+            "last_updated_by": "string",
+            "pfr_ds_id": "number"
+          }
+        ],
+        "draft_submission_status": "string",
+        "fpn_id": "number",
+        "indirect_support": [
+          {
+            "account": "number",
+            "account_description": "string",
+            "account_expenses_ytd": "number",
+            "account_remaining_balance": "number",
+            "account_reported_expenses": "number",
+            "created_by": "string",
+            "fpn_isc_id": "number",
+            "last_updated_by": "string",
+            "pfr_isc_id": "number",
+            "shared_cost": "string",
+            "total_cost": "number"
+          }
+        ],
+        "last_updated_by": "string",
+        "operation_name": "string",
+        "outputs": [
+          {
+            "created_by": "string",
+            "fpn_output_id": "number",
+            "last_updated_by": "string",
+            "locations": [
+              {
+                "accounts": [
+                  {
+                    "account": "number",
+                    "account_description": "string",
+                    "account_expenses_ytd": "number",
+                    "account_line_amount": "number",
+                    "account_line_comments": "string",
+                    "account_line_status": "string",
+                    "account_remaining_balance": "number",
+                    "account_reported_expenses": "number",
+                    "created_by": "string",
+                    "fpn_account_id": "number",
+                    "last_updated_by": "string",
+                    "pfr_account_id": "number"
+                  }
+                ],
+                "created_by": "string",
+                "fpn_location_id": "number",
+                "last_updated_by": "string",
+                "locationCode": "string",
+                "location_description": "any",
+                "location_direct_programme_cost": "number",
+                "location_direct_shared_cost": "number",
+                "location_expenses_ytd": "number",
+                "location_indirect_support_cost": "number",
+                "location_line_comments": "string",
+                "location_line_status": "string",
+                "location_original_budget": "number",
+                "location_remaining_balance": "number",
+                "location_reported_expenses": "number",
+                "pfr_location_id": "number"
+              }
+            ],
+            "output_code": "string",
+            "output_description": "string",
+            "output_direct_programme_cost": "any",
+            "output_direct_shared_cost": "any",
+            "output_expenses_ytd": "number",
+            "output_indirect_support_cost": "any",
+            "output_line_comments": "string",
+            "output_line_status": "string",
+            "output_remaining_balance": "number",
+            "output_reported_expenses": "number",
+            "output_total_budget": "number",
+            "pfr_output_id": "number"
+          }
+        ],
+        "partner_name": "string",
+        "partner_site_code": "string",
+        "pfr_code": "string",
+        "pfr_comments": "string",
+        "pfr_id": "number",
+        "pfr_major_version": "number",
+        "pfr_minor_version": "number",
+        "pfr_status": "string",
+        "reporting_period": [
+          {
+            "pfr_type": "string",
+            "reporting_period_end_date": "string",
+            "reporting_period_start_date": "string"
+          }
+        ],
+        "total_direct_programme_cost": "number",
+        "total_direct_shared_cost": "number",
+        "total_indirect_support_cost": "number",
+        "total_negotiated_budget": "number",
+        "total_original_budget": "number",
+        "total_pfr_expenses": "number"
+      }
+    },
+    "gettestTemp": {
+      "pfr": {
+        "_id": "number",
+
+        "fpn_code": "string",
+        "cost_center": "any",
+        "cost_center_name": "any",
+        "partner_number": "number",
+        "po_number": "any",
+        "fpn_major_version": "number",
+        "fpn_minor_version": "number",
+        "operation_name": "string",
+        "operation_code": "string",
+        "fpn_status": "string",
+        "total_original_budget": "number",
+        "budget_year": "number",
+        "contract_currency_code": "string",
+        "partner_name": "string",
+        "partner_site_code": "string",
+        "total_negotiated_budget": "number",
+        "total_direct_programme_cost": "any",
+        "total_direct_shared_cost": "any",
+        "total_indirect_support_cost": "any",
+        "total_expenses": "any",
+        "total_prepayment": "number",
+        "contract_number": "string",
+        "fpn_comments": "string",
+        "essential_controls": "string",
+        "validation_state": "any",
+        "active_flag": "string",
+        "recalculation_required": "any",
+        "draft_submission_status": "string",
+        "direct_shared": [
+          {
+            "fpn_id": "number",
+            "fpn_ds_id": "number",
+            "account_id": "number",
+            "account_line_amount": "number",
+            "account_negotiated_amount": "any",
+            "account_status_code": "string",
+            "account_number": "number",
+            "account_description": "string",
+            "account_line_comments": "string"
+          }
+        ],
+        "indirect_support": [
+          {
+            "fpn_isc_id": "number",
+            "fpn_id": "number",
+            "lookup_type_id": "number",
+            "shared_cost": "string",
+            "total_value": "number",
+            "account_id": "number",
+            "account_number": "number",
+            "account_description": "string"
+          }
+        ],
+        "outputs": [
+          {
+            "fpn_id": "number",
+            "fpn_output_id": "number",
+            "last_baseline": "number",
+            "outputCode": "string",
+            "outputDescription": "string",
+            "baseLine": "number",
+            "comments": "any",
+            "lineStatus": "string",
+            "total_expenses": "number",
+            "value": "number",
+            "ds": "number",
+            "psc": "number",
+            "locations": [
+              {
+                "fpn_id": "number",
+                "fpn_output_id": "number",
+                "fpn_location_id": "number",
+                "last_baseline": "number",
+                "location_description": "string",
+                "locationCode": "string",
+                "outputCode": "string",
+                "baseLine": "number",
+                "total_expenses": "number",
+                "value": "number",
+                "ds": "number",
+                "psc": "number",
+                "lineStatus": "string",
+                "comments": "any",
+                "accounts": [
+                  {
+                    "account_category": "string",
+                    "fpn_id": "number",
+                    "fpn_location_id": "number",
+                    "last_baseline": "number",
+                    "loc": "string",
+                    "fpn_output_id": "number",
+                    "outputCode": "string",
+                    "id": "number",
+                    "total_expenses": "number",
+                    "value": "number",
+                    "accountCode": "number",
+                    "accountDescription": "string",
+                    "comments": "any",
+                    "lineStatus": "string"
+
+                  }
+                ]
+
+              }
+            ]
+
+          }
+        ]
+
+      }
+      },
+      "directSharedTableType": {
+      "account_description": "string",
+      "account_id": "number",
+      "account_line_amount": "number",
+      "account_line_comments": "string",
+      "account_number": "number",
+      "expenses_ytd": "number",
+      "remaining_balance": "number",
+      "reported_expenses": "number",
+      "account_status_code": "string",
+      "created_by": "string",
+      "fpn_ds_id": "number",
+      "last_updated_by": "string",
+      "pfr_ds_id": "number"
+    },
+
+          "gettestTempcopy": {
+      "pfr": {
+        "budget_year": "number",
+        "contract_currency_code": "string",
+        "contract_number": "string",
+        "created_by": "string",
+        "direct_shared": [
+          {
+            "account": "number",
+            "account_description": "string",
+            "account_line_amount": "number",
+            "account_line_comments": "string",
+            "account_line_status": "string",
+            "account_remaining_balance": "number",
+            "account_reported_expenses": "number",
+            "created_by": "string",
+            "fpn_ds_id": "number",
+            "last_updated_by": "string",
+            "pfr_ds_id": "number"
+          }
+        ],
+        "draft_submission_status": "string",
+        "fpn_id": "number",
+        "indirect_support": [
+          {
+            "account": "number",
+            "account_description": "string",
+            "account_expenses_ytd": "number",
+            "account_remaining_balance": "number",
+            "account_reported_expenses": "number",
+            "created_by": "string",
+            "fpn_isc_id": "number",
+            "last_updated_by": "string",
+            "pfr_isc_id": "number",
+            "shared_cost": "string",
+            "total_cost": "number"
+          }
+        ],
+        "last_updated_by": "string",
+        "operation_name": "string",
+        "outputs": [
+          {
+            "created_by": "string",
+            "fpn_output_id": "number",
+            "last_updated_by": "string",
+            "locations": [
+              {
+                "accounts": [
+                  {
+                    "accountCode": "number",
+                    "accountDescription": "string",
+                    "account_expenses_ytd": "number",
+                    "value": "number",
+                    "expenses_ytd":"any",
+                    "remaining_balance":"any",
+                     "reported_expenses":"any",
+                    "comments": "string",
+                    "account_status_code": "string",
+                    "account_remaining_balance": "number",
+                    "account_reported_expenses": "number",
+                    "created_by": "string",
+                    "fpn_account_id": "number",
+                    "last_updated_by": "string",
+                    "id": "number"
+                  }
+                ],
+                "created_by": "string",
+                "fpn_location_id": "number",
+                "last_updated_by": "string",
+                "locationCode": "string",
+                "location_description": "any",
+                "value": "number",
+                "ds": "number",
+                "location_expenses_ytd": "number",
+                "psc": "number",
+                "comments": "string",
+                "expenses_ytd":"any",
+                "remaining_balance":"any",
+                "reported_expenses":"any",
+                "lineStatus": "string",
+                "baseLine": "number",
+                "location_remaining_balance": "number",
+                "location_reported_expenses": "number",
+                "pfr_location_id": "number"
+              }
+            ],
+            "outputCode": "string",
+            "outputDescription": "string",
+            "value": "any",
+            "ds": "any",
+            "output_expenses_ytd": "number",
+            "psc": "any",
+            "comments": "string",
+            "expenses_ytd":"any",
+            "remaining_balance":"any",
+            "reported_expenses":"any",
+            "lineStatus": "string",
+            "output_remaining_balance": "number",
+            "output_reported_expenses": "number",
+            "baseLine": "number",
+            "pfr_output_id": "number"
+          }
+        ],
+        "partner_name": "string",
+        "partner_site_code": "string",
+        "pfr_code": "string",
+        "pfr_comments": "string",
+        "pfr_id": "number",
+        "pfr_major_version": "number",
+        "pfr_minor_version": "number",
+        "pfr_status": "string",
+        "reporting_period": [
+          {
+            "pfr_type": "string",
+            "reporting_period_end_date": "string",
+            "reporting_period_start_date": "string"
+          }
+        ],
+        "total_direct_programme_cost": "number",
+        "total_direct_shared_cost": "number",
+        "total_indirect_support_cost": "number",
+        "total_negotiated_budget": "number",
+        "total_original_budget": "number",
+        "total_pfr_expenses": "number"
+      }
+      },
+    "directSharedTableTypecopy":{
+      "account_description": "string",
+      "account_id": "number",
+      "account_line_amount": "number",
+      "account_line_comments": "string",
+      "account_number": "number",
+      "expenses_ytd": "any",
+      "remaining_balance": "any",
+      "reported_expenses": "any",
+      "account_status_code": "string",
+      "created_by": "string",
+      "fpn_ds_id": "number",
+      "last_updated_by": "string",
+      "pfr_ds_id": "number"
+    }
+
+    },
+  "variables": {
+    "array": {
+      "type": "string"
+    },
+    "ovUserInfoglobal": {
+      "type": {
+        "checked_out_fpns": "string",
+        "given_name": "string",
+        "login_time": "string",
+        "role": "string",
+        "security_context": "string",
+        "security_context_code": "string",
+        "title": "string"
+      }
+    },
+    "pfrComment": {
+      "type": "string"
+    },
+    "pfrId": {
+      "type": "any"
+    },
+    "selectedTab": {
+      "type": "string"
+    },
+    "tempdirectSharedArray":{
+      "type":[
+        {
+          "account_description": "string",
+          "account_id": "number",
+          "account_line_amount": "number",
+          "account_line_comments": "string",
+          "account_negotiated_amount": "any",
+          "account_number": "number",
+          "account_status_code": "string",
+          "expenses_ytd":"any",
+          "remaining_balance":"any",
+          "reported_expenses":"any",
+            "fpn_ds_id": "number",
+            "fpn_id": "number"
+        }
+      ]
+    },
+      "directSharedTableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "directSharedTableTypecopy",
+        "keyAttributes": "account_id"
+      }
+    },
+      "arrayTreeDP": {
+      "type": "any"
+    },
+   
+       "dataSource": {
+      "type": "any"
+    },
+      "testVariable": {
+      "type": "object[]"
+    },
+     "temptableADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "gettestTempcopy",
+        "keyAttributes": "pfr_id"
+      }
+    },
+    "Array": {
+      "type": "string"
+    },
+    "pageTilte": {
+      "type": "string"
+    },
+    "selectedStatus": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "object[]",
+      "defaultValue": "[[ [{\"id\":\"0\",\"label\":$application.translations.appBundle.train_pfrlabel_draft,\"disabled\":true},{\"id\":\"1\",\"label\":$application.translations.appBundle.train_pfrlabel_proposed,\"disabled\":true},{\"id\":\"2\",\"label\":$application.translations.appBundle.train_pfrlabel_verifiedrevised,\"disabled\":true},{\"id\":\"3\",\"label\":$application.translations.appBundle.train_pfrlabel_agreed,\"disabled\":true},{\"id\":\"4\",\"label\":$application.translations.appBundle.train_pfrlabel_approved,\"disabled\":true}] ]]"
+    },
+     "pfrgenralInfo": {
+      "type": {
+        "budgetYear": "string",
+        "comments": "string",
+        "contractCurrency": "string",
+        "operation": "string",
+        "partnerERPSite": "string",
+        "partnerName": "string",
+        "toataloriginalbudget": "number",
+        "contractNumber": "string",
+        "totalNegotiatedBudget": "number",
+        "totalDirectProgramme": "number",
+        "totalDirectShared": "number",
+        "totalIndirectSupportCost": "number",
+        "totalPFRExpenses":"number"
+      }
+    },
+      "reporting_period": {
+      "type": {
+        "end_date": "string",
+        "periodicPFR": "string",
+        "pfr_type": "string",
+        "start_date": "string"
+      }
+    }
+
+  },
+  "eventListeners": {
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chain": "vbEnterListener"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "css": [
+      "/resources/css/redwood-overrides.css"
+    ]
+  }
+}

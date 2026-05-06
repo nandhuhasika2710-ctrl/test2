@@ -1,0 +1,200 @@
+{
+    "description": "",
+    "routerFlow": "main",
+    "variables": {
+    "isClicked": {
+      "type": "boolean"
+    },
+
+    "languageOption": {
+      "type": "object[]",
+      "defaultValue": [
+        {
+          "value": "en",
+          "label": "English"
+        },
+        {
+          "value": "fr",
+          "label": "French"
+        },
+        {
+          "value": "spa",
+          "label": "Spanish"
+        }
+      ]
+    },
+    "languageOptionADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "data": "{{ $variables.languageOption }}",
+        "keyAttributes": "value",
+        "textFilterAttributes": [
+          "label"
+        ]
+      }
+    },
+    "messagesADP": {
+      "type": "vb/ArrayDataProvider2",
+      "defaultValue": {
+        "itemType": "messageType",
+        "keyAttributes": "id"
+      }
+    },
+    "messageToast": {
+        "type": "string"
+      },
+      "messagesBannerADP": {
+        "type": "vb/ArrayDataProvider2",
+        "defaultValue": {
+          "itemType": "MessagesBannerType",
+          "keyAttributes": "id"
+        }
+      },
+      "messageId": {
+        "type": "number",
+        "defaultValue": 1
+      },
+    "selectedLocale": {
+      "type": "any",
+      "defaultValue": "en",
+      "persisted": "device"
+    }
+
+    },
+    "metadata": {},
+    "types": {
+    "@decorators.getLanguageResponse": {
+      "endpoint": "getLanguage",
+      "service": "getlanguage",
+      "path": "response"
+    },
+    "getLanguageResponse": {
+      "language": [
+        {
+          "ID": "string",
+          "language": "string"
+        }
+      ]
+    },
+      "MessagesBannerType": {
+        "id": "number",
+        "messageType": "string",
+        "primaryText": "string",
+        "primaryActionLabel": "string",
+        "secondaryText": "any",
+        "secondaryActionLabel": "string"
+      },
+      "messageType": {
+      "id": "string",
+      "severity": "string",
+      "category": "string",
+      "summary": "string",
+      "detail": "string",
+      "timestamp": "string",
+      "autoTimeout": "number"
+    }
+
+    },
+    "eventListeners": {
+    "buttonAction": {
+      "chains": [
+        {
+          "chain": "onClickReload",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "buttonAction2": {
+      "chains": [
+        {
+          "chain": "ButtonActionChain",
+          "parameters": {
+            "event": "{{$event}}",
+            "originalEvent": "{{$event.detail.originalEvent}}"
+          }
+        }
+      ]
+    },
+    "selectClick": {
+      "chains": [
+        {
+          "chain": "SelectClickChain"
+        }
+      ]
+    },
+    "selectValueItem": {
+      "chains": [
+        {
+          "chain": "SelectValueItemChangeChain",
+          "parameters": {
+            "key": "{{$event.detail.value.key}}",
+            "data": "{{$event.detail.value.data}}",
+            "metadata": "{{$event.detail.value.metadata}}"
+          }
+        }
+      ]
+    },
+    "vbEnter": {
+      "chains": [
+        {
+          "parameters": {},
+          "chain": "shellPageOnLoad"
+        }
+      ]
+    },
+    "vbNotification": {
+      "chains": [
+        {
+          "parameters": {
+            "event": "{{ { id: $event.key, summary: $event.summary, detail: $event.message, severity: $event.type, autoTimeout: $event.displayMode === 'transient' ? 0 : -1 } }}"
+          },
+          "chain": "showNotificationMessage"
+        }
+      ]
+    }
+
+    },
+    "imports": {
+    "components": {
+      "oj-button": {
+        "path": "ojs/ojbutton"
+      },
+      "oj-dialog": {
+        "path": "ojs/ojdialog"
+      },
+      "oj-form-layout": {
+        "path": "ojs/ojformlayout"
+      },
+      "oj-highlight-text": {
+        "path": "ojs/ojhighlighttext"
+      },
+      "oj-label": {
+        "path": "ojs/ojlabel"
+      },
+      "oj-messages": {
+        "path": "ojs/ojmessages"
+      },
+      "oj-optgroup": {
+        "path": "ojs/ojoptgroup"
+      },
+      "oj-select-single": {
+        "path": "ojs/ojselectsingle"
+      },
+      "oj-sp-messages-banner": {
+        "path": "oj-sp/messages-banner/loader"
+      },
+      "oj-sp-messages-toast": {
+        "path": "oj-sp/messages-toast/loader"
+      },
+      "oj-toolbar": {
+        "path": "ojs/ojtoolbar"
+      }
+
+    },
+    "css": []
+    },
+    "translations": {}
+  }

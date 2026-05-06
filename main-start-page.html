@@ -1,0 +1,1550 @@
+<!-- <oj-sp-welcome-page id="oj-sp-wp1" background-color="[[ $page.variables.backgroundColor ]]"
+  illustration-background="[[ require.toUrl($page.variables.illustrationBackground) ]]"
+  display-options.image-stretch="[[ $page.variables.imageStretch ]]"
+  display-options.mobile-image="[[ $page.variables.mobileImage ]]" display-options.responsive-padding="on"
+  page-title="[[ $variables.pageTitle ]]"> -->
+
+<oj-tab-bar edge="top" id="oj-tab-bar-2058186034-1" selection="{{ $application.variables.mainPageTabSelect }}"
+  on-selection-changed="[[$listeners.ojTabBar20581860341Selection]]">
+  <ul>
+    <li id="oj-tab-bar-2058186034-1-tab-1">
+      <a href="#" id="oj-tab-bar-2058186034-1-tab-1-tab" aria-controls="oj-tab-bar-2058186034-1-tab-1-panel">
+        <span><oj-bind-text value="[[$application.translations.appBundle.nav_overview]]"></oj-bind-text></span>
+        <span class="oj-tabbar-item-icon oj-ux-ico-home"></span></a>
+    </li>
+    <li id="oj-tab-bar-2058186034-1-tab-2">
+      <a href="#" id="oj-tab-bar-2058186034-1-tab-2-tab" aria-controls="oj-tab-bar-2058186034-1-tab-2-panel">
+        <span><oj-bind-text value="[[$application.translations.appBundle.nav_financial_plan]]"></oj-bind-text></span>
+        <span class="oj-tabbar-item-icon oj-ux-ico-home"></span></a>
+    </li>
+    <li id="oj-tab-bar-2058186034-1-tab-3">
+      <a href="#" id="oj-tab-bar-2058186034-1-tab-3-tab" aria-controls="oj-tab-bar-2058186034-1-tab-3-panel">
+        <span><oj-bind-text value="[[$application.translations.appBundle.nav_project_financial_report]]"></oj-bind-text></span>
+        <span class="oj-tabbar-item-icon oj-ux-ico-home"></span></a>
+    </li>
+    <li id="oj-tab-bar-2058186034-1-tab-4">
+      <a href="#" id="oj-tab-bar-2058186034-1-tab-4-tab" aria-controls="oj-tab-bar-2058186034-1-tab-4-panel">
+        <span><oj-bind-text value="[[$application.translations.appBundle.nav_prepayment]]"></oj-bind-text></span>
+        <span class="oj-tabbar-item-icon oj-ux-ico-home"></span></a>
+    </li>
+    <li id="oj-tab-bar-2058186034-1-tab-5">
+      <a href="#" id="oj-tab-bar-2058186034-1-tab-5-tab" aria-controls="oj-tab-bar-2058186034-1-tab-5-panel">
+        <span><oj-bind-text value="[[$application.translations.appBundle.nav_reports]]"></oj-bind-text></span>
+        <span class="oj-tabbar-item-icon oj-ux-ico-home"></span></a>
+    </li>
+    <li id="oj-tab-bar-2058186034-1-tab-6">
+      <a href="#" id="oj-tab-bar-2058186034-1-tab-6-tab" aria-controls="oj-tab-bar-2058186034-1-tab-6-panel">
+        <span><oj-bind-text value="[[$application.translations.appBundle.nav_indicators]]"></oj-bind-text></span>
+        <span class="oj-tabbar-item-icon oj-ux-ico-home"></span></a>
+    </li>
+  </ul>
+</oj-tab-bar>
+<oj-switcher value="[[ $application.variables.mainPageTabSelect ]]" id="oj-switcher-2058186034-1"
+  style=" height:700px ;width: 100%">
+  <div slot="oj-tab-bar-2058186034-1-tab-1" id="oj-tab-bar-2058186034-1-tab-1-panel"
+    aria-labelledby="oj-tab-bar-2058186034-1-tab-1-tab" role="tabpanel">
+    <div class="oj-flex">
+      <div class="oj-panel oj-sm-2">
+        <oj-form-layout label-edge="top" class="oj-sm-padding-4x">
+          <!-- <oj-avatar size="lg" class="oj-sm-margin-2x-bottom"></oj-avatar> -->
+
+          <oj-text class="oj-typography-heading-sm">
+            <oj-bind-text
+              value="[[ `${($application.variables.userInfoObj.FirstName ?? '')} ${($application.variables.userInfoObj.LastName ?? '')}` ]]">
+            </oj-bind-text>
+            <!-- <oj-bind-text value="[[ $variables.ovUserInfo.given_name ]]"></oj-bind-text> -->
+          </oj-text>
+          <oj-label-value>
+            <oj-text slot="label">
+              <oj-bind-text
+                value="[[ ($application.variables.userInfoObj.Salutation === 'Mr') ? $application.translations.appBundle.user_title_mr : ($application.variables.userInfoObj.Salutation === 'Mrs') ? $application.translations.appBundle.user_title_mrs : ($application.variables.userInfoObj.Salutation === 'Ms') ? $application.translations.appBundle.user_title_ms : ''  ]]">
+                <!-- <oj-bind-text
+                value="[[ ($variables.ovUserInfo.title === 'Mr') ? $application.translations.appBundle.user_title_mr : ($variables.ovUserInfo.title === 'Mrs') ? $application.translations.appBundle.user_title_mrs : '' ]]">
+              </oj-bind-text> -->
+            </oj-text>
+          </oj-label-value>
+
+          <div class="oj-divider-top oj-sm-hide"></div>
+
+          <oj-label for="role" class="oj-typography-body-sm">
+            <oj-bind-text value="[[$application.translations.appBundle.user_role_label]]"></oj-bind-text>
+            <!-- <oj-label-value>
+              <oj-text id="role" slot="value" class="oj-typography-body-sm">
+                <oj-bind-text value=" [[ $application.variables.userInfoObj.RoleName ]]"></oj-bind-text>
+                <!-- <oj-bind-text value=" [[ $variables.ovUserInfo.role ]]"></oj-bind-text> -->
+            <!-- </oj-text> -->
+            <!-- </oj-label-value>  -->
+
+          </oj-label>
+          <oj-select-single placeholder="Select Role" aria-label="Select Role"
+            data="[[ $application.variables.UserRoleADP ]]" value="{{ $variables.CurrentUserRole }}" class="userRoleLov"
+            on-oj-value-action="[[$listeners.selectValueAction]]"></oj-select-single>
+
+
+
+          <oj-collapsible>
+            <!-- <oj-label for="security" class="oj-typography-body-sm" slot="header"> -->
+            <oj-highlight-text text="[[$application.translations.appBundle.user_security_context_label]]"
+              match-text="Highlight" slot="header" class="oj-typography-body-sm"></oj-highlight-text>
+
+            <oj-label-value>
+              <oj-bind-for-each data="[[ $functions.formatBUCode($variables.formattedBUCode) ]]">
+                <template>
+                  <div>
+                    <oj-bind-text value="[[ $current.data ]]" class="oj-typography-body-sm"></oj-bind-text>
+                  </div>
+                </template>
+              </oj-bind-for-each>
+            </oj-label-value>
+          </oj-collapsible>
+
+          </oj-label>
+
+          <oj-label for="lastlogin" class="oj-typography-body-sm">
+            <oj-bind-text value="[[$application.translations.appBundle.user_last_login_label]]"></oj-bind-text>
+            <oj-label-value>
+              <oj-text id="lastlogin" slot="value" class="oj-typography-body-md">
+                <oj-bind-text value="[[ $application.variables.ovUserInfo.login_time ]]"></oj-bind-text>
+              </oj-text>
+            </oj-label-value>
+          </oj-label>
+          <oj-bind-if test="[[$application.variables.pfmUser === 'Programme Officer']]">
+            <oj-label for="fpns" class="oj-typography-body-sm">
+              <oj-bind-text value="[[$application.translations.appBundle.user_checked_out_fpns_label]]"></oj-bind-text>
+              <oj-label-value>
+                <oj-text id="fpns" slot="value" class="oj-typography-body-md">
+                  <oj-bind-text value="[[ $application.variables.ovUserInfo.checked_out_fpns ]] "></oj-bind-text>
+                </oj-text>
+              </oj-label-value>
+            </oj-label>
+          </oj-bind-if>
+          <a target="_blank" href="https://constructionandengineering.oraclecloud.com/" class="oj-link">
+            <oj-bind-text value="[[$application.translations.appBundle.user_link_aconex]]"></oj-bind-text>
+          </a>
+        </oj-form-layout>
+      </div>
+      <div class="oj-panel oj-flex-item oj-sm-12 oj-md-10">
+
+        <!-- <div class="oj-flex" data-vb-layout-type="flex">
+          </div> -->
+        <div class="oj-flex oj-sm-flex-direction-column">
+          <div class="oj-flex-item oj-sm-flex-initial">
+            <oj-form-layout max-columns="4" direction="row" columns="4" label-edge="top" class="">
+              <oj-c-select-multiple item-text="operation_name"
+                label-hint="[[$application.translations.appBundle.filter_operation_label]]"
+                value="{{ $variables.overviewOperationSelectedVar }}"
+                data="[[ $application.variables.ovOperationLovADP ]]" on-value-changed="[[$listeners.selectValue]]"
+                id="ovOperationId"></oj-c-select-multiple>
+              <oj-c-select-multiple item-text="budget_year"
+                label-hint="[[$application.translations.appBundle.filter_budget_year_label]]"
+                value="{{ $variables.overviewBudgetYearSelectedVar }}" on-value-changed="[[$listeners.selectValue2]]"
+                data="[[ $variables.ovBudgetYearLovADP ]]" id="ovBudgetYearId"
+                on-value-items-changed="[[$listeners.ovBudgetYearIdValueItems]]"></oj-c-select-multiple>
+              <oj-c-select-multiple item-text="partner_name"
+                label-hint="[[$application.translations.appBundle.filter_partner_label]]"
+                value="{{ $variables.overviewPartnerSelectedVar }}" on-value-changed="[[$listeners.selectValue3]]"
+                data="[[ $variables.ovPartnerLovADP ]]" id="ovPartnerId"
+                disabled="[[ !$variables.overviewOperationSelectedVar || $application.variables.loginType === 'Partner']]"
+                on-value-items-changed="[[$listeners.ovPartnerIdValueItems]]"></oj-c-select-multiple>
+              <div class="oj-flex oj-sm-12 oj-sm-align-items-flex-start">
+                <oj-button label="[[$application.translations.appBundle.button_search]]" id="searchBtn"
+                  chroming="callToAction" class="oj-sm-margin-6x-top" on-oj-action="[[$listeners.searchBtnAction]]">
+                </oj-button>
+              </div>
+            </oj-form-layout>
+          </div>
+          <div class="oj-flex-item oj-sm-flex-initial">
+            <oj-form-layout max-columns="2" columns="2" direction="row" class="oj-formlayout-full-width">
+              <oj-label class="oj-sm-margin-12x-start">
+                <oj-bind-text value="[[$application.translations.appBundle.section_fpn_statuses_title]]"></oj-bind-text>
+              </oj-label>
+              <oj-chart type="pie" style="height:200px;" class="oj-sm-flex-initial"
+                legend.title="[[$application.translations.appBundle.chart_status]]" data="[[ $variables.pieChartSDP ]]">
+                <template slot="itemTemplate">
+                  <oj-chart-item value="[[ $current.data.total ]]" series-id="[[ $current.data.status ]]"
+                    group-id="[[['Undefined']]]" label="[[ $current.data.percentage ]]"></oj-chart-item>
+                </template>
+                <template slot="seriesTemplate" data-oj-as="series">
+                  <oj-chart-series
+                    color='[[ series.id == "Agreed" ? "#00B398" : series.id == "Approved" ? "#0072BC" : series.id == "In Progress" ? "#FAEB00" : null ]]'>
+                  </oj-chart-series>
+                </template>
+              </oj-chart>
+              <oj-label>
+                <oj-bind-text value="[[$application.translations.appBundle.section_project_workplans_overview_title]]">
+                </oj-bind-text>
+              </oj-label>
+              <oj-chart type="bar" class="oj-sm-flex-initial oj-flex-item" style="height:200px;"
+                y-axis.title="[[$application.translations.appBundle.table_header_value_usd]]" x-axis.title=""
+                legend.title="" stack="on" orientation="horizontal" data="[[ $variables.barChartSDP ]]">
+                <template slot="itemTemplate">
+                  <oj-chart-item value="[[ $current.data.value ]]" group-id="[[ [$current.data.total_expenses] ]]"
+                    series-id="[[ $current.data.total_expenses ]]"></oj-chart-item>
+                </template>
+                <template slot="seriesTemplate" data-oj-as="series">
+                  <oj-chart-series
+                    color="[[ series.id.trim()== 'Total Expensed' ? '#0072BC' : series.id.trim() == 'Total Prepayments' ? '#00B398' : series.id.trim() == 'Total Value' ? '#FAEB00' : null ]]">
+                  </oj-chart-series>
+                </template>
+              </oj-chart>
+            </oj-form-layout>
+          </div>
+
+          <oj-table class="oj-table-stretch oj-flex-item" scroll-policy="loadMoreOnScroll"
+            data="[[ $variables.overviewTable ]]"
+            columns="{{ $functions.overviewtableColumns($application.translations.appBundle.filter_operation_label,$application.translations.appBundle.label_budget_year,$application.translations.appBundle.filter_partner_label,$application.translations.appBundle.table_header_workplans,$application.translations.appBundle.table_header_value_usd,$application.translations.appBundle.table_header_output_eo,$application.translations.appBundle.table_header_in_progress,$application.translations.appBundle.table_header_agreed,$application.translations.appBundle.table_header_approved,$application.translations.appBundle.table_header_negotiated_budget) }}"
+            id="OverviewTableId" scroll-policy-options.fetch-size="10" scroll-policy-options.max-count="1000"
+            style="height:500px;width: 100%;" selection-mode.column="single" dnd.reorder.columns="enabled"
+            on-columns-changed="[[$listeners.overviewTableIdColumns]]" display="grid" layout="fixed"
+            column-resize-behavior="add" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+            selection-mode.row="none">
+            <template slot="seperator">
+              <oj-input-number value="[[ $current.data ]]" class="oj-form-control-text-align-right" readonly="true">
+              </oj-input-number>
+            </template>
+
+            <!-- <oj-paging-control data="[[ $variables.overviewTable ]]" page-size="15" slot="bottom"></oj-paging-control> -->
+          </oj-table>
+          <div class="oj-flex-item oj-sm-flex-initial">
+
+            <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+
+              <!-- LEFT -->
+              <div>
+                <oj-paging-control data="[[ $variables.overviewTable ]]" page-size="[[ $variables.rowsPerPage ]]">
+                </oj-paging-control>
+              </div>
+
+              <!-- RIGHT -->
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="white-space:nowrap;">Rows Per Page</span>
+
+                <oj-select-single data="[[ $variables.rowsPerPageTypeADP ]]" value="{{ $variables.rowsPerPage }}"
+                  style="width:6rem;" aria-label="Rows Per Page">
+                </oj-select-single>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div slot="oj-tab-bar-2058186034-1-tab-2" id="oj-tab-bar-2058186034-1-tab-2-panel"
+    aria-labelledby="oj-tab-bar-2058186034-1-tab-2-tab" role="tabpanel">
+    <oj-bind-if test='[[ $variables.financialplanTab==="Tab" ]]'>
+      <div class="oj-panel">
+        <div class="oj-flex">
+          <div class="oj-panel oj-flex-item oj-sm-12 oj-md-12">
+            <div class="oj-flex oj-md-padding-2x-vertical oj-sm-justify-content-center oj-sm-flex-direction-column">
+              <oj-highlight-text text="[[$application.translations.appBundle.header_filter]]" match-text="Highlight"
+                style="font-weight:bold;"></oj-highlight-text> <!-- </h4> -->
+              <div class="oj-flex-item oj-sm-flex-initial">
+                <oj-form-layout max-columns="5" direction="row" columns="5" label-edge="inside">
+                  <oj-c-select-multiple item-text="budget_year"
+                    label-hint="[[$application.translations.appBundle.label_budget_year]]"
+                    data="[[ $variables.fpBudgetYearLovADP ]]" value="{{ $variables.fpBudgetYearSelectedVar }}"
+                    id="fpBudgetYearId" on-value-changed="[[$listeners.selectValue4]]"
+                    on-value-items-changed="[[$listeners.fpBudgetYearIdValueItems]]"></oj-c-select-multiple>
+                  <oj-c-select-multiple item-text="operation_name"
+                    label-hint="[[$application.translations.appBundle.label_operationabc]]"
+                    data="[[ $application.variables.fpOperationLovADP ]]"
+                    value="{{ $variables.fpOperationSelectedVar }}" on-value-changed="[[$listeners.selectValue5]]"
+                    id="fpOperationId"></oj-c-select-multiple>
+                  <oj-c-select-multiple item-text="partner_name"
+                    label-hint="[[$application.translations.appBundle.label_partner]]"
+                    data="[[ $variables.fpPartnerLovADP ]]" value="{{ $variables.fpPartnerSelectedVar }}"
+                    on-value-changed="[[$listeners.selectValue6]]" id="fpPartnerId"
+                    disabled="[[ !$variables.fpOperationSelectedVar || $application.variables.loginType === 'Partner' ]]"
+                    on-value-items-changed="[[$listeners.fpPartnerIdValueItems]]"></oj-c-select-multiple>
+                  <oj-c-select-multiple label-hint="[[$application.translations.appBundle.label_contract_number]]"
+                    item-text="contract_number" data="[[ $variables.fpContractNumberADP ]]"
+                    on-value-changed="[[$listeners.selectValue7]]" value="{{ $variables.fpContractNumberSelectedVar }}"
+                    id="fpContractNumberId" on-value-items-changed="[[$listeners.fpContractNumberIdValueItems]]"
+                    disabled="[[ !$variables.fpBudgetYearSelectedVar ]]"></oj-c-select-multiple>
+                  <oj-button label="[[$application.translations.appBundle.button_search]]" id="searchBtn"
+                    chroming="solid" class="oj-sm-margin-1x-top oj-button-cta-chrome"
+                    on-oj-action="[[$listeners.searchBtnAction2]]">
+                  </oj-button>
+                  <!-- <div></div> -->
+                  <!-- <div></div> -->
+                  <!-- <div></div> -->
+                  <!-- <div class="oj-flex-item oj-sm-12"> -->
+                  <!-- <div class="oj-flex oj-sm-justify-content-flex-end"> -->
+                  <!-- <oj-button label="[[$application.translations.appBundle.button_search]]" id="searchBtn"
+                        chroming="solid" class="oj-sm-margin-6x-top oj-button-cta-chrome"
+                        on-oj-action="[[$listeners.searchBtnAction2]]"></oj-button> -->
+                  <!-- </div> -->
+                  <!-- </div> -->
+                </oj-form-layout>
+              </div>
+
+              <oj-toolbar chroming="solid">
+                <oj-menu-button class="oj-button-sm pri" id="select-columns-menu-button" chroming="solid">
+                  <span><oj-bind-text value="[[$application.translations.appBundle.button_view]]"></oj-bind-text></span>
+                  <oj-menu style="display:none;" slot="menu" id="selectsub-columns-menu">
+                    <oj-option>
+                      <span><oj-bind-text value="[[$application.translations.appBundle.menu_button_columns]]"></oj-bind-text></span>
+
+                      <oj-menu style="display:none;" id="select-columns-menu" open-options.position.collision="flip">
+                        <oj-menu-select-many value="{{ $variables.menuValue }}"
+                          options="[[ $variables.columnOptions.map(function(op){return {'value':op.field,'label':op.headerText,'id':'option-'+op.field}}) ]]"
+                          id="select-columns-menu-select-many">
+
+                        </oj-menu-select-many>
+
+
+                      </oj-menu>
+                    </oj-option>
+
+                    <!-- <oj-option> <span>Select All </span></oj-option> -->
+                  </oj-menu>
+                </oj-menu-button>
+
+                <oj-menu-button chroming="solid" class="pri oj-button-sm"
+                  disabled="{{ $page.variables.fpSelectedRow.length === 0 }}">
+                  <span><oj-bind-text value="[[$application.translations.appBundle.button_action_group]]"></oj-bind-text></span>
+                  <oj-menu slot="menu" on-oj-menu-action="[[$listeners.menuMenuAction2]]">
+                    <oj-option value="Lock"
+                      disabled="[[ (($application.variables.userRole === 'PARTNER_USER' ) )?true:false ]]">
+                      <span><oj-bind-text value="[[$application.translations.appBundle.menu_button_checkout]]"></oj-bind-text></span>
+                    </oj-option>
+                    <oj-option value="Edit"
+                      disabled="[[( ( ($application.variables.userRole === 'SENIOR_PROGRAMME_OFFICER' || $application.variables.userRole === 'JUNIOR_PROGRAMME_OFFICER' ||  $application.variables.userRole === 'PFM_SUPERUSER')  && ( $variables.getGetfpn_detailsVar.fpn_status  === 'Scoped' || $variables.getGetfpn_detailsVar.fpn_status  === 'Revised'  || $variables.getGetfpn_detailsVar.fpn_status  === 'Endorsed'  || $variables.getGetfpn_detailsVar.fpn_status === 'Approved' || $variables.getGetfpn_detailsVar.fpn_status  === 'Under Review' || $variables.getGetfpn_detailsVar.fpn_status  === 'Rescoped' || $variables.getGetfpn_detailsVar.fpn_status === 'Rejected' ) )  ||  ( ($application.variables.userRole === 'PARTNER_USER' || $application.variables.userRole === 'PFM_SUPERUSER') && ( $variables.getGetfpn_detailsVar.fpn_status  === 'Proposed'  ) )) ? false : true]]">
+                      <span><oj-bind-text value="[[$application.translations.appBundle.menu_button_edit]]"></oj-bind-text></span>
+                    </oj-option>
+                    <!-- //prepayment disable// -->
+                    <!-- [[ (($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Scoped') ||       ($application.variables.pfmUser === 'Partner' && $variables.getGetfpn_detailsVar.fpn_status=== 'Proposed')||         ($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Revised')||     ($application.variables.pfmUser === 'Partner' && $variables.getGetfpn_detailsVar.fpn_status=== 'Revised')       ||       ($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Endorsed')       ||        ($application.variables.pfmUser === 'Partner' && $variables.getGetfpn_detailsVar.fpn_status=== 'Endorsed')       ||      ($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Agreed')       ||        ($application.variables.pfmUser === 'Partner' && $variables.getGetfpn_detailsVar.fpn_status=== 'Agreed')       ||       ($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Approved')       ||    ($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Under Review')       ||        ($application.variables.pfmUser === 'Programme Officer' && $variables.getGetfpn_detailsVar.fpn_status=== 'Rescoped') ) ?false:true]] -->
+                    <oj-option value="Prepayment"
+                      disabled="[[($application.variables.userRole === 'PARTNER_USER' && $variables.getGetfpn_detailsVar.fpn_status === 'Approved')?false:true]]">
+                      <span><oj-bind-text value="[[$application.translations.appBundle.menu_button_makePrepayment]]"></oj-bind-text></span>
+                    </oj-option>
+                    <oj-option value="PFR"
+                      disabled="[[($application.variables.userRole === 'PARTNER_USER' && $variables.getGetfpn_detailsVar.fpn_status === 'Approved')?false:true]]">
+                      <span><oj-bind-text value="[[$application.translations.appBundle.menu_button_createPFR]]"></oj-bind-text></span>
+                    </oj-option>
+                  </oj-menu>
+                </oj-menu-button>
+                <div style="flex:1;"></div>
+
+                <oj-button label="[[$application.translations.appBundle.button_print]]" chroming="borderless"
+                  on-oj-action="[[$listeners.buttonAction26]]" display="icons" title="Print FPN">
+                  <span class="oj-ux-ico-print" slot="startIcon"></span>
+                </oj-button>
+                <oj-sample-export-data chroming="borderless" display="icons" data="[[ $variables.fpsearchResultADP ]]"
+                  columns="{{ $variables.columns_download }}" format="plain">
+                  <span class="oj-ux-ico-download" slot="startIcon" ></span>
+                </oj-sample-export-data>
+                <span class="oj-ux-ico-import" style="margin-left:0.5rem; font-size: 24px;  cursor: pointer;"
+                    hidden="true"></span>
+                <span class="oj-ux-ico-download" style="margin-left:0.5rem; font-size: 24px; cursor: pointer;"
+                    hidden="true"></span>
+              </oj-toolbar>
+
+              <oj-table scroll-policy="loadMoreOnScroll" class="oj-table-stretch oj-flex-item"
+                selection-mode.row="single"
+                columns="{{ $functions.fpnActiontableColumns($application.translations.appBundle.table_action, $application.translations.appBundle.table_partner, $application.translations.appBundle.table_financial_plan, $application.translations.appBundle.table_budget,$application.translations.appBundle.table_header_negotiated_budget, $application.translations.appBundle.table_modified_by, $application.translations.appBundle.table_modified_date, $application.translations.appBundle.table_fpn_status, $application.translations.appBundle.table_fpn_id, $application.translations.appBundle.menu_button_poNumber, $application.translations.appBundle.label_contractnumber, $application.translations.appBundle.menu_button_accumulatedExpenses,$variables.columns) }}"
+                style="height:700px;width: 100%" id="finacialPlanSearchTable" scroll-policy-options.fetch-size="6"
+                scroll-policy-options.max-count="1000" selected="{{ $variables.fpSelectedRow }}"
+                data="[[ $variables.financialSearchPageTable ]]"
+                on-first-selected-row-changed="[[$listeners.finacialPlanSearchTableFirstSelectedRow]]"
+                dnd.reorder.columns="enabled" selection-mode.column="single"
+                on-columns-changed="[[$listeners.finacialPlanSearchTableColumns]]" display="grid"
+                horizontal-grid-visible="enabled" vertical-grid-visible="enabled" column-resize-behavior="add"
+                layout="fixed">
+
+                <template slot="actionColumn">
+
+                  <!-- <span class="oj-ux-ico-dollar-note" id="credit" style="margin-left:10px;" ></span> -->
+                  <oj-bind-if test="[[ $current.row.is_locked === 'Y']]">
+                    <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                      disabled="[[ $functions.isButtonDisabled($application.variables.userRole,$current.row.fpn_status, $current.row.operation_name, $current.row.is_locked,$current.row.locked_by,$application.variables.userInfoObj.UserID,'lock') ]]"
+                      on-oj-action="[[$listeners.buttonAction10]]" title="Lock/unlock">
+                      <span slot="startIcon" class="oj-ux-ico-lock"></span>
+                    </oj-button>
+                  </oj-bind-if>
+                  <oj-bind-if test="[[$current.row.is_locked === 'N' ]]">
+                    <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                      disabled="[[ $functions.isButtonDisabled($application.variables.userRole,$current.row.fpn_status, $current.row.operation_name, $current.row.is_locked,$current.row.locked_by,$application.variables.userInfoObj.UserID,'unlock') ]]"
+                      on-oj-action="[[$listeners.buttonAction11]]" title="Lock/unlock">
+                      <span slot="startIcon" class="oj-ux-ico-lock-open"></span>
+                    </oj-button>
+                  </oj-bind-if>
+                  <!-- <oj-button display="icons" class="oj-button-sm" chroming="borderless">
+                      <span slot="startIcon" class="oj-ux-ico-lock"></span>
+                    </oj-button> -->
+                  <!-- disable confition for edit -->
+                  <!-- disabled="[[ (($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Scoped') ||       ($application.variables.pfmUser === 'Partner' && $current.row.fpn_status === 'Proposed')||         ($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Revised')||     ($application.variables.pfmUser === 'Partner' && $current.row.fpn_status === 'Revised')       ||       ($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Endorsed')       ||        ($application.variables.pfmUser === 'Partner' && $current.row.fpn_status === 'Endorsed')       ||      ($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Agreed')       ||        ($application.variables.pfmUser === 'Partner' && $current.row.fpn_status === 'Agreed')       ||       ($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Approved')       ||    ($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Under Review')       ||        ($application.variables.pfmUser === 'Programme Officer' && $current.row.fpn_status === 'Rescoped') ) ?false:true]]" -->
+                  <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                    on-oj-action="[[$listeners.buttonAction]]" title="Edit"
+                    disabled="[[ $functions.isButtonDisabled($application.variables.userRole,$current.row.fpn_status, $current.row.operation_name, $current.row.is_locked,$current.row.locked_by,$application.variables.userInfoObj.UserID,'edit') ]]">
+                    <span slot="startIcon" class="oj-ux-ico-edit-box"></span>
+                  </oj-button>
+                  <!-- [[($application.variables.pfmUser === 'Partner' && $current.row.fpn_status === 'Approved')?false:true]] -->
+                  <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                    on-oj-action="[[$listeners.buttonAction17]]" title="Prepayment"
+                    disabled="[[(($application.variables.userRole === 'PARTNER_USER' || $application.variables.userRole === 'PFM_SUPERUSER') && ($current.row.fpn_status === 'Agreed' || $current.row.fpn_status === 'Approved'))?false:true]]">
+                    <span slot="startIcon" class="oj-ux-ico-dollar"></span>
+                  </oj-button>
+                  <!-- disabled="[[(($application.variables.pfmUser === 'Partner' && $current.row.fpn_status === 'Approved'))?false:true]]"> -->
+                  <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                    on-oj-action="[[$listeners.buttonAction18]]" title="PFR"
+                    disabled="[[ (($application.variables.userRole === 'PARTNER_USER' || $application.variables.userRole === 'PFM_SUPERUSER') && $current.row.fpn_status === 'Approved') ? false : true ]]">
+                    <!-- pfr-button-icon pfr-icon-disabled -->
+                    <span slot="startIcon" class="oj-ux-ico-notes"></span>
+                    <!-- <span slot="startIcon"
+                         :class="[[ (($application.variables.userRole === 'PARTNER_USER' && $current.row.fpn_status === 'Approved'))  ? 'pfr-button-icon' : 'pfr-icon-disabled' ]]"></span> -->
+                  </oj-button>
+                  <!-- <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                    on-oj-action="[[$listeners.buttonAction20]]"
+                    disabled=" [[ ( ( ($application.variables.userRole === 'SENIOR_PROGRAMME_OFFICER' || $application.variables.userRole === 'JUNIOR_PROGRAMME_OFFICER'|| $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Proposed' || $current.row.fpn_status === 'Agreed'  || $current.row.fpn_status === 'Rescoped') ) ||( ($application.variables.userRole === 'SENIOR_PROJECT_CONTROL' || $application.variables.userRole === 'JUNIOR_PROJECT_CONTROL' || $application.variables.userRole === 'PFM_SUPERUSER')  && ( $current.row.fpn_status === 'Revised' || $current.row.fpn_status === 'Endorsed' || $current.row.fpn_status === 'Proposed' || $current.row.fpn_status === 'Agreed'|| $current.row.fpn_status === 'Approved'|| $current.row.fpn_status === 'Under Review' || $current.row.fpn_status === 'Closed' || $current.row.fpn_status === 'Rescoped') )  ||  ( ($application.variables.userRole === 'PARTNER_USER'|| $application.variables.userRole === 'PFM_SUPERUSER')  && ( $current.row.fpn_status === 'Revised' || $current.row.fpn_status === 'Endorsed' || $current.row.fpn_status === 'Agreed' || $current.row.fpn_status === 'Approved' || $current.row.fpn_status === 'Closed' || $current.row.fpn_status === 'Rescoped') )|| ($application.variables.userRole === 'VIEW_ONLY')) ? false : true ]]">
+                    <span slot="startIcon"
+                      :class="[[ ( ( ($application.variables.userRole === 'SENIOR_PROGRAMME_OFFICER' || $application.variables.userRole === 'JUNIOR_PROGRAMME_OFFICER'|| $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Proposed' || $current.row.fpn_status === 'Agreed' || $current.row.fpn_status === 'Rescoped') ) ||( ($application.variables.userRole === 'SENIOR_PROJECT_CONTROL' || $application.variables.userRole === 'JUNIOR_PROJECT_CONTROL' || $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Revised' || $current.row.fpn_status === 'Endorsed' || $current.row.fpn_status === 'Proposed' || $current.row.fpn_status === 'Agreed'|| $current.row.fpn_status === 'Approved'|| $current.row.fpn_status === 'Under Review' || $current.row.fpn_status === 'Closed' || $current.row.fpn_status === 'Rescoped') ) || ( ($application.variables.userRole === 'PARTNER_USER'|| $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Revised' || $current.row.fpn_status === 'Endorsed' || $current.row.fpn_status === 'Agreed' || $current.row.fpn_status === 'Approved' || $current.row.fpn_status === 'Closed' || $current.row.fpn_status === 'Rescoped') )|| ($application.variables.userRole === 'VIEW_ONLY')) ? 'pfr-view-icon' : 'pfr-view-icon pfr-icon-disabled']]"></span>
+                  </oj-button> -->
+                  <oj-button display="icons" class="oj-button-sm" chroming="borderless"
+                    on-oj-action="[[$listeners.buttonAction20]]" title="View">
+                    <!-- <span slot="startIcon"
+                      :class="[[ ( ( ($application.variables.userRole === 'SENIOR_PROGRAMME_OFFICER' || $application.variables.userRole === 'JUNIOR_PROGRAMME_OFFICER'|| $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Proposed' || $current.row.fpn_status === 'Agreed' || $current.row.fpn_status === 'Rescoped') ) ||( ($application.variables.userRole === 'SENIOR_PROJECT_CONTROL' || $application.variables.userRole === 'JUNIOR_PROJECT_CONTROL' || $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Revised' || $current.row.fpn_status === 'Endorsed' || $current.row.fpn_status === 'Proposed' || $current.row.fpn_status === 'Agreed'|| $current.row.fpn_status === 'Approved'|| $current.row.fpn_status === 'Under Review' || $current.row.fpn_status === 'Closed' || $current.row.fpn_status === 'Rescoped') ) || ( ($application.variables.userRole === 'PARTNER_USER'|| $application.variables.userRole === 'PFM_SUPERUSER') && ( $current.row.fpn_status === 'Revised' || $current.row.fpn_status === 'Endorsed' || $current.row.fpn_status === 'Agreed' || $current.row.fpn_status === 'Approved' || $current.row.fpn_status === 'Closed' || $current.row.fpn_status === 'Rescoped') )|| ($application.variables.userRole === 'VIEW_ONLY')) ? 'pfr-view-icon' : 'pfr-view-icon pfr-icon-disabled']]"></span> -->
+                    <span slot="startIcon" class="oj-ux-ico-view"></span>
+                  </oj-button>
+                  <oj-button display="icons" class="oj-button-sm" chroming="borderless" disabled="true">
+                    <span slot="startIcon" class="pfr-invoice-icon"></span>
+                  </oj-button>
+
+
+                </template>
+                <template slot="firstcolumn">
+                  <oj-radioset>
+                    <oj-option value="option1"></oj-option>
+                  </oj-radioset>
+                </template>
+                <template slot="seperator">
+                  <oj-input-number value="[[ $current.data ]]" class="oj-form-control-text-align-right" readonly="true">
+                  </oj-input-number>
+                </template>
+                <template slot="date">
+                  <oj-input-date-time value="[[$current.data ]]" readonly="true"
+                    converter='{"type": "datetime", "options": {"pattern":"dd/MM/yyyy hh:mm "}}'></oj-input-date-time>
+
+                </template>
+
+              </oj-table>
+              <div class="oj-flex-item oj-sm-flex-initial">
+
+                <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+
+                  <!-- LEFT -->
+                  <div>
+                    <oj-paging-control data="[[ $variables.financialSearchPageTable ]]"
+                      page-size="[[ $variables.rowsPerPage ]]">
+                    </oj-paging-control>
+                  </div>
+
+                  <!-- RIGHT -->
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="white-space:nowrap;">Rows Per Page</span>
+
+                    <oj-select-single data="[[ $variables.rowsPerPageTypeADP ]]" value="{{ $variables.rowsPerPage }}"
+                      style="width:6rem;" aria-label="Rows Per Page">
+                    </oj-select-single>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </oj-bind-if>
+    <oj-bind-if test='[[ $variables.financialplanTab==="Edit" ]]'>
+      <div class="oj-flex oj-flex-item oj-sm-12 oj-md-12 oj-md-padding-6x-horizontal oj-md-padding-2x-vertical">
+        <div class="oj-flex oj-sm-12 oj-sm-flex-initial oj-panel demo-mypanel"
+          style="margin-left: auto; margin-right: auto;">
+          <div class="oj-flex oj-sm-flex-direction-column oj-md-8 oj-sm-align-items-flex-start">
+            <!-- <oj-input-text label-hint="PFR Status:" class="oj-flex-item oj-sm-flex-initial" readonly="true"></oj-input-text> -->
+            <div>
+              <oj-highlight-text text='[[ "FPN Status:"+$variables.currentFpnCode]]'
+                class="oj-md-margin-8x-start oj-sm-align-self-flex-start"></oj-highlight-text>
+              <!-- <oj-highlight-text style="font-weight: bold;"
+                text='[[ $variables.statusMessage === undefined ? &apos;&apos;: "("+$variables.statusMessage +")" ]]'></oj-highlight-text> -->
+            </div>
+            <oj-train steps="[[ $variables.steps ]]" selected-step="{{ $variables.selectedStatus }}" class="">
+            </oj-train>
+          </div>
+          <div class="oj-md-4 oj-flex oj-sm-align-items-flex-start oj-sm-justify-content-flex-end">
+            <oj-button label="[[$application.translations.appBundle.button_cancel]]" id="cancelBtn" chroming="solid"
+              class="oj-md-margin-10x-top oj-flex-item oj-sm-flex-initial" style="margin-left:20px;"
+              on-oj-action="[[$listeners.cancelBtnAction]]">
+            </oj-button>
+
+
+
+            <oj-button label="[[$application.translations.appBundle.button_saveasdraft]]"
+              class="oj-md-margin-10x-top oj-button-cta-chrome" chroming="solid" style="margin-left:20px;"
+              on-oj-action="[[$listeners.buttonAction9]]"
+              disabled="[[ !$variables.canEdit || $variables.fpnDraftSubmitStatus === 'SUBMIT' ]]"></oj-button>
+
+            <oj-button label="[[$application.translations.appBundle.button_submit]]"
+              class="oj-sm-margin-10x-top oj-button-cta-chrome" chroming="solid" style="margin-left:20px;"
+              on-oj-action="[[$listeners.buttonAction13]]"
+              disabled="[[ ($variables.validationColor === 'runvalidation_orange' && $variables.retainRunValidationVar === 'N') || ($variables.validationColor === 'runvalidation_red' && $variables.retainRunValidationVar === 'N') || $variables.retainRunValidationVar === 'N' || $application.variables.userRole === 'SENIOR_PROJECT_CONTROL' || $application.variables.userRole === 'JUNIOR_PROJECT_CONTROL' || !$variables.canEdit || $variables.disableSubmitButton === 'true' || $variables.fpnDraftSubmitStatus === 'SUBMIT' ]]">
+            </oj-button>
+
+          </div>
+
+          <oj-collapsible class="oj-md-12 oj-md-padding-6x-horizontal oj-panel" expanded="true">
+            <div slot="header" style="height:1rem;">
+              <h6>
+                <oj-bind-text value="[[$application.translations.appBundle.header_generalinfo]]"></oj-bind-text>
+              </h6>
+            </div>
+            <oj-form-layout max-columns="6" direction="row" readonly="true" columns="6"
+              class="oj-formlayout-full-width">
+              <div>
+                <oj-label for="operation">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_operationabc]]"></oj-bind-text>
+                </oj-label>
+
+                <div style="margin-top: 6px;">
+                  <oj-input-text value="{{ $variables.genralInfo.operation }}" readonly="true" aria-label="Operation"
+                    id="operation"></oj-input-text>
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.operation ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+                <oj-label for="budgetyear">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_budget_year]]"></oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-text value="{{ $variables.genralInfo.budgetYear }}" readonly="true" aria-label="Budget Year"
+                    id="budgetyear">
+                  </oj-input-text>
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.budgetYear ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+                <oj-label for="contractCurrency">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_contractcurrency]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-text value="{{ $variables.genralInfo.contractCurrency }}" readonly="true"
+                    aria-label="Contract Currency" id="contractCurrency">
+                  </oj-input-text>
+                  <!-- <oj-label>
+                    
+                    <oj-bind-text value="[[ $variables.genralInfo.contractCurrency ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+                <oj-label for="toataloriginalbudget">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_totaloriginalbudget]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-number value="{{ $variables.genralInfo.toataloriginalbudget }}" readonly="true"
+                    aria-label="Total Scoped Budget" id="toataloriginalbudget" class="">
+                  </oj-input-number>
+                </div>
+                <!-- <oj-label>
+                                      <oj-bind-text value="[[ $variables.genralInfo.toataloriginalbudget ]]"></oj-bind-text>
+                                    </oj-label> -->
+
+              </div>
+
+              <div>
+                <oj-label for="partnerName">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_partnername]]"></oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-text value="{{ $variables.genralInfo.partnerName }}" readonly="true"
+                    aria-label="Parner Name" id="partnerName" style="text-decoration: underline;">
+                  </oj-input-text>
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.partnerName ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+                <oj-label for="partnerERPSite">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_partnererpsite]]"></oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-text value="{{ $variables.genralInfo.partnerERPSite }}" readonly="true"
+                    aria-label="Partner ERP Sit" id="partnerERPSite">
+                  </oj-input-text>
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.partnerERPSite ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+
+                <oj-label style="margin-top: 20px;" for="contractNumber">
+                  <oj-button chroming="solid" style="height:11px;width:10px;" class="runvalidation oj-sm-margin-1x-top"
+                    aria-label="color" display="icons"></oj-button>
+                  <oj-bind-text value="[[$application.translations.appBundle.label_contract_number]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-text value="{{ $variables.genralInfo.contractNumber }}" readonly="true"
+                    aria-label="Contract Number" id="contractNumber" style="text-decoration: underline;">
+                  </oj-input-text>
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.contractNumber ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+                <oj-label style="margin-top: 20px;" for="totalNegotiatedBudget">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_totalnegotiatedbudget]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <oj-input-number value="{{ $variables.genralInfo.totalNegotiatedBudget }}" readonly="true"
+                    aria-label="Total Negotiated Budget" id="totalNegotiatedBudget" class="">
+                  </oj-input-number>
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.totalNegotiatedBudget ]]"></oj-bind-text>
+                  </oj-label> -->
+                </div>
+              </div>
+
+              <div>
+                <oj-label style="margin-top: 20px;" for="totalDirectProgramme">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_totaldirectprogramme]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.totalDirectProgramme ]]"></oj-bind-text>
+                  </oj-label> -->
+                  <oj-input-number value="{{ $variables.genralInfo.totalDirectProgramme }}" readonly="true"
+                    aria-label="Total Direct Programme" id="totalDirectProgramme" class="">
+                  </oj-input-number>
+                </div>
+              </div>
+
+              <div>
+                <oj-label style="margin-top: 20px;" for="totalDirectShared">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_totaldirectshared]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.totalDirectShared ]]"></oj-bind-text>
+                  </oj-label> -->
+                  <oj-input-number value="{{ $variables.genralInfo.totalDirectShared }}" readonly="true"
+                    aria-label="Total Direct Shared" id="totalDirectShared" class="">
+                  </oj-input-number>
+                </div>
+              </div>
+
+              <div>
+                <oj-label style="margin-top: 20px;" for="totalIndirectSupportCost">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_totalindirectsupportcost]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.totalIndirectSupportCost ]]"></oj-bind-text>
+                  </oj-label> -->
+                  <oj-input-number value="{{ $variables.genralInfo.totalIndirectSupportCost }}" readonly="true"
+                    aria-label="Total InDirect Support Cost" id="totalIndirectSupportCost" class="">
+                  </oj-input-number>
+                </div>
+              </div>
+
+              <div>
+                <oj-label style="margin-top: 20px;" for="totalPFRExpenses">
+                  <oj-bind-text value="[[$application.translations.appBundle.label_totalpfrexpenses]]">
+                  </oj-bind-text>
+                </oj-label>
+                <div style="margin-top: 6px;">
+                  <!-- <oj-label>
+                    <oj-bind-text value="[[ $variables.genralInfo.totalPFRExpenses ]]"></oj-bind-text>
+                  </oj-label> -->
+                  <oj-input-number value="{{ $variables.genralInfo.totalPFRExpenses }}" readonly="true"
+                    aria-label="Total PFR Expenses" id="totalPFRExpenses" class="">
+                  </oj-input-number>
+                </div>
+              </div>
+            </oj-form-layout>
+            <oj-form-layout max-columns="2" columns="2" direction="row">
+              <div style="display: flex; flex-direction:column;">
+                <oj-label>
+                  <oj-bind-text value="Comments"></oj-bind-text>
+                </oj-label>
+                <!-- <oj-text-area rows="1" style="margin-top: 6px;" disabled="[[ !$variables.canEdit ]]"
+                      value="{{ $variables.fpnComment }}"></oj-text-area> -->
+                <oj-text-area rows="1" style="margin-top: 6px;" value="{{ $variables.fpnComment }}"
+                  validators='[[ [    {        "type": "regExp",        "options": {            "pattern": "^[^<>]{3,250}$",            "messageSummary": "Invalid Input",            "messageDetail": "Please enter plain text only (3–250 characters). Rich text or HTML is not allowed."        }    }] ]]'
+                  disabled="[[ !$variables.canEdit]]" on-click="[[$listeners.textAreaClick]]"></oj-text-area>
+              </div>
+
+              <!-- Button (col 6, aligned with textarea) -->
+              <div style="display: flex; align-items: flex-end;" class="oj-md-padding-8x-vertical">
+
+                <!-- <oj-button on-oj-action="[[$listeners.buttonAction12]]" disabled="[[ !$variables.canEdit ]]">
+                      Comments
+                      History</oj-button> -->
+                <oj-button on-oj-action="[[$listeners.buttonAction12]]">
+                  Comments History</oj-button>
+              </div>
+
+            </oj-form-layout>
+          </oj-collapsible>
+
+          <!-- Left Side: View & Action Group Buttons -->
+          <div class="oj-flex oj-sm-align-items-center oj-sm-margin-2x-top" style="margin-left:5rem; width:100%;">
+
+            <!-- Left side: can wrap -->
+            <div class="oj-flex oj-sm-align-items-center" style="gap:16px; flex-wrap:wrap;">
+              <!-- <oj-icon icon="check-circle" class="oj-icon"
+                  style="color: {{validationStatus ? 'green' : 'red'}}; margin-right: 8px;">
+                </oj-icon>
+                <oj-button label="[[$application.translations.appBundle.button_runValidation]]" chroming="outlined"
+                  class="oj-flex-item updatepage"
+                  style="margin-left: 50px; background-color: {{validationStatus ? 'green' : 'red'}};"> -->
+              <!-- </oj-button> -->
+              <oj-dialog dialog-title="Validation Result" id="oj-dialog-runvalidation" style="width: 90%;">
+                <div slot="body">
+                  <div class="oj-flex">
+                    <oj-table scroll-policy="loadMoreOnScroll" display="grid" style="height:200px; width: 100%"
+                      scroll-policy-options.fetch-size="6" scroll-policy-options.max-count="1000"
+                      class="oj-flex-item oj-sm-12 oj-md-12 oj-table-stretch" data="[[ $variables.runValidationADP]]"
+                      columns='[{"headerText":"Rule Name","field":"rule_name","resizable":"enabled"},{"headerText":"Result","field":"result","resizable":"enabled"},{"headerText":"Error Message","field":"error_message","resizable":"enabled"}]'
+                      column-resize-behavior="add" horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+                      columns-default.resizable="enabled">
+                    </oj-table>
+                  </div>
+                </div>
+                <div slot="footer">
+                  <oj-button chroming="outlined" on-oj-action="[[$listeners.buttonAction23]]">Close</oj-button>
+                </div>
+              </oj-dialog>
+              <oj-button chroming="solid" aria-label="color" display="icons" :class="[[ $variables.validationColor ]]">
+              </oj-button>
+              <oj-button label="[[$application.translations.appBundle.button_runValidation]]" chroming="outlined"
+                class="oj-flex-item updatepage" on-oj-action="[[$listeners.buttonAction19]]"
+                disabled="[[ !$variables.canEdit ]]">
+              </oj-button>
+
+              <!-- <oj-button label="[[$application.translations.appBundle.button_changeLog]]" chroming="outlined"
+              class="oj-flex-item updatepage"></oj-button> -->
+
+              <oj-sample-export-data class="oj-flex-item  updatepage" chroming="outlined"
+                data="[[ $variables.changeLogExportADP ]]" columns="{{ $variables.changeLogExportColumns }}"
+                format="plain" on-click="[[$listeners.exportDataClick]]">
+                <span><oj-bind-text value="[[$application.translations.appBundle.button_changeLog]]"></oj-bind-text></span>
+              </oj-sample-export-data>
+
+              <oj-menu-button chroming="outlined" class="oj-flex-item updatepage">
+                <span><oj-bind-text value="[[$application.translations.appBundle.menu_button_view]]"></oj-bind-text></span>
+                <oj-menu style="display:none;" id="select-columns-menu-update" slot="menu">
+                  <oj-menu-select-many value="{{ $variables.menuUpdatePageValue }}"
+                    options="[[ $variables.tableColumnArrayOptions.map(function(op){return {'value':op.field,'label':op.headerText,'id':'option-'+op.field}}) ]]"
+                    id="menu-select-many-update-page"></oj-menu-select-many>
+                </oj-menu>
+              </oj-menu-button>
+
+              <oj-menu-button chroming="outlined" class="oj-flex-item updatepage" style="margin-left: 50px;">Action
+                Group
+                <oj-menu slot="menu" on-oj-menu-action="[[$listeners.menuMenuAction]]">
+                  <oj-option value="status"
+                    disabled="[[ $variables.ojTabBar20581860342SelectedItem === 'oj-tab-bar-2058186034-2-tab-3' || $variables.financialPlanStatus==='Reallocation Request Sent'|| $variables.ojTabBar20581860342SelectedItem === 'oj-tab-bar-2058186034-2-tab-4' || $application.variables.userRole === 'SENIOR_PROJECT_CONTROL' || $application.variables.userRole === 'JUNIOR_PROJECT_CONTROL' || !$variables.canEdit ]]">
+                    Multi-select Status Update
+
+                  </oj-option>
+                  <oj-option value="assignAccount"
+                    disabled="[[$variables.ojTabBar20581860342SelectedItem === 'oj-tab-bar-2058186034-2-tab-3' || $variables.financialPlanStatus==='Reallocation Request Sent'||$variables.ojTabBar20581860342SelectedItem === 'oj-tab-bar-2058186034-2-tab-4' || !$variables.canEdit ]]">
+                    Add acccount line(s)</oj-option>
+                  <oj-option value="deleteAccount"
+                    disabled="[[$variables.ojTabBar20581860342SelectedItem === 'oj-tab-bar-2058186034-2-tab-3' ||$variables.financialPlanStatus==='Reallocation Request Sent' || $variables.ojTabBar20581860342SelectedItem === 'oj-tab-bar-2058186034-2-tab-4' || !$variables.canEdit]]">
+                    Delete
+                    account line(s)</oj-option>
+                  <!-- <oj-option value="createPFR"
+                    disabled="[[ $variables.financialPlanStatus==='Reallocation Request Sent' ]]">Create PFR</oj-option> -->
+                  <oj-option value="approvedreject"
+                    disabled="[[ $variables.financialPlanStatus!=='Reallocation Request Sent' ]]">Reallocation
+                    Request-Approval/Rejection</oj-option>
+                </oj-menu>
+              </oj-menu-button>
+
+
+              <oj-button label="[[$application.translations.appBundle.button_recalculate]]" chroming="outlined"
+                class="oj-flex-item updatepage" on-oj-action="[[$listeners.buttonAction5]]"
+                disabled="[[ !$variables.canEdit ]]"></oj-button>
+
+              <!-- <oj-button label="[[$application.translations.appBundle.button_changeScope]]" chroming="outlined"
+              class="oj-flex-item updatepage" disabled="[[ $variables.canChangeScope ]]"></oj-button> -->
+              <oj-button label="[[$application.translations.appBundle.button_changeScope]]" chroming="outlined"
+                class="oj-flex-item updatepage" on-oj-action="[[$listeners.buttonAction14]]"
+                disabled="[[  !$variables.canChangeScope ]]"></oj-button>
+            </div>
+            <!-- Right Side: Icons -->
+            <!-- disabled="[[ $application.variables.loginType==='Partner' ]]" -->
+            <div class="oj-flex oj-sm-align-items-center" style="margin-left:auto; gap:8px; white-space:nowrap;">
+              <oj-file-picker on-oj-select="[[$listeners.filePickerSelect]]" selection-mode="single" title="Import">
+                <oj-button display="icons" slot="trigger" chroming="borderless"
+                  disabled="[[ !$variables.canEdit || !$variables.partnerCanEdit ]]">
+                  <span class="oj-ux-ico-import" slot="startIcon"></span>
+                </oj-button>
+              </oj-file-picker>
+              <oj-button display="icons" chroming="borderless" title="Export">
+                <span class="oj-ux-ico-download" slot="startIcon" on-click="[[$listeners.iconClick]]"></span>
+              </oj-button>
+            </div>
+          </div>
+
+
+
+
+          <div class="oj-flex oj-md-12 oj-panel">
+            <oj-tab-bar edge="top" id="oj-tab-bar-2058186034-2"
+              selection="{{$variables.ojTabBar20581860342SelectedItem}}">
+              <ul>
+                <li id="oj-tab-bar-2058186034-2-tab-1">
+                  <a href="#" id="oj-tab-bar-2058186034-2-tab-1-tab"
+                    aria-controls="oj-tab-bar-2058186034-2-tab-1-panel">Direct Programme</a>
+                </li>
+                <li id="oj-tab-bar-2058186034-2-tab-2">
+                  <a href="#" id="oj-tab-bar-2058186034-2-tab-2-tab"
+                    aria-controls="oj-tab-bar-2058186034-2-tab-2-panel">Direct Shared</a>
+                </li>
+                <li id="oj-tab-bar-2058186034-2-tab-3">
+                  <a href="#" id="oj-tab-bar-2058186034-2-tab-3-tab"
+                    aria-controls="oj-tab-bar-2058186034-2-tab-3-panel">Indirect Support</a>
+                </li>
+                <li id="oj-tab-bar-2058186034-2-tab-4">
+                  <a href="#" id="oj-tab-bar-2058186034-2-tab-4-tab"
+                    aria-controls="oj-tab-bar-2058186034-2-tab-4-panel">Essential Control</a>
+                </li>
+              </ul>
+            </oj-tab-bar>
+            <!-- table edit conditon edit-mode="{{ $variables.canEdit ? 'rowEdit' : 'none' }}" -->
+            <oj-switcher value="[[$variables.ojTabBar20581860342SelectedItem]]" id="oj-switcher-2058186034-2"
+              class="oj-flex-item oj-sm-12 oj-md-12">
+              <div slot="oj-tab-bar-2058186034-2-tab-1" id="oj-tab-bar-2058186034-2-tab-1-panel"
+                aria-labelledby="oj-tab-bar-2058186034-2-tab-1-tab" role="tabpanel">
+                <div class="oj-flex oj-sm-align-items-center"
+                  style="padding:8px 12px; background:#f8f8f8; border-bottom:1px solid #e0e0e0; margin-bottom:2px;">
+                  <!-- Left label, using flex-grow so the right item goes all the way to right -->
+                  <div class="oj-flex-item" style="flex-grow:1; font-size:1rem; font-weight:500; color:#333;">
+                    Direct Programme
+                  </div>
+                  <!-- Right label, do NOT use flex-grow, so it takes only its content width and sticks to right -->
+                  <div class="oj-flex-item" style="font-size:1rem; font-weight:500; color:#333; text-align:right;">
+                    <oj-bind-text value="[[ $variables.headerStatusValue ]]"> </oj-bind-text>
+                  </div>
+                </div>
+                <div class="oj-flex">
+
+                  <oj-table scroll-policy="loadMoreOnScroll"
+                    class="oj-table-stretch oj-flex-item oj-sm-flex-initial oj-md-12 treetable oj-table-data-cell-padding"
+                    style="height:400px;width:1200px;" data="[[ $variables.dataSource ]]"
+                    on-oj-before-row-edit="[[$listeners.tableBeforeRowEdit]]"
+                    on-oj-before-row-edit-end="[[$listeners.tableBeforeRowEditEnd]]" selection-mode.row="multiple"
+                    select-all-control="hidden" on-selected-changed="[[$listeners.tableSelected]]"
+                    horizontal-grid-visible="enabled" vertical-grid-visible="enabled"
+                    on-columns-changed="[[$listeners.tableColumns]]" columns="{{ $variables.tableColumnArray }}"
+                    selection-mode.column="none" edit-mode="[[ $variables.canEdit ? 'rowEdit' : 'none' ]]"
+                    id="treetable">
+
+                    <!-- Create a template for the table to add row expander -->
+                    <template slot="rowTemplate" data-oj-as="row">
+                      <tr>
+                        <!-- Expander column (for Output, Location, Account) -->
+                        <td>
+                          <oj-row-expander context="[[row]]" on-oj-expand="[[$listeners.rowExpanderExpand]]"
+                            on-oj-collapse="[[$listeners.rowExpanderCollapse]]"></oj-row-expander>
+                          <span>
+          <oj-bind-text value="[[ 
+            (row.item.data.outputCode ? row.item.data.outputCode : '') +
+            (row.item.data.outputDescription ? ' - ' + row.item.data.outputDescription : '') +
+            (row.item.data.locationCode ? row.item.data.locationCode : '') +
+            (row.item.data.accountCode ? row.item.data.accountCode : '') +
+            (row.item.data.accountDescription ? ' ' + row.item.data.accountDescription : '')
+          ]]"></oj-bind-text>
+        </span>
+                        </td>
+
+                        <!-- Baseline Column -->
+                        <td>
+                          <span>
+          <oj-input-number value="[[row.item.data.baseLine]]" readonly="true" class="oj-form-control-text-align-right"></oj-input-number>
+        </span>
+                        </td>
+
+                        <!-- PSC Column -->
+                        <td>
+                          <span>
+          <oj-input-number value="[[row.item.data.psc]]" readonly="true" class="oj-form-control-text-align-right"></oj-input-number>
+        </span>
+                        </td>
+
+                        <!-- DS Column -->
+                        <td>
+                          <span>
+          <oj-input-number value="[[row.item.data.ds]]" readonly="true" class="oj-form-control-text-align-right"></oj-input-number>
+        </span>
+                        </td>
+
+                        <!-- Value Column with Editing Logic -->
+                        <td>
+                          <span>
+          <oj-bind-if test='[[$current.mode === "edit" && $current.item.data.accountCode]]'>
+           
+            <oj-input-number value="{{ $variables.accountCurrent.value }}" min="0" required="true"
+              help.instruction="Negative amounts are not allowed" class="oj-form-control-text-align-right"
+              readonly="[[ (row.item.data.lineStatus === 'Agreed' || row.item.data.lineStatus === 'Deleted') ||  ($application.variables.userRole === 'PARTNER_USER' && !(row.item.data.lineStatus === 'Proposed' || row.item.data.lineStatus === 'Revised' || row.item.data.lineStatus === 'Under Review' || row.item.data.lineStatus === 'Scoped' )) ]]"></oj-input-number>
+          
+          </oj-bind-if>
+          <oj-bind-if test='[[$current.mode !== "edit" || !$current.item.data.accountCode]]'>
+            <oj-input-number value="[[row.item.data.value]]" readonly="true" min="0"
+              class="oj-form-control-text-align-right"></oj-input-number>
+          </oj-bind-if>
+        </span>
+                        </td>
+
+                        <!-- Comments Column with Editing Logic -->
+                        <td class="comments-col">
+                          <span>
+          <oj-bind-if test='[[$current.mode === "edit" && $current.item.data.accountCode]]'>
+             <oj-input-text value="{{ $variables.accountCurrent.comments }}" length.max="250"
+              required="[[ $variables.accountCurrent.lineStatus==='Revised' ?true:false ]]"
+              valid="invalidShown" readonly="[[ (row.item.data.lineStatus === 'Agreed' || row.item.data.lineStatus === 'Deleted') ||  ($application.variables.userRole === 'PARTNER_USER' && !(row.item.data.lineStatus === 'Proposed' || row.item.data.lineStatus === 'Revised' || row.item.data.lineStatus === 'Under Review' || row.item.data.lineStatus === 'Scoped' )) ]]"
+              validators='[{
+                 "type": "regexp", 
+                 "options": {
+                   "pattern": "^[^<>]{3,250}$", 
+                   "messageDetail": "Please enter plain text only (3–250 characters). Rich text or HTML is not allowed."
+                 }
+               }]'>
+                          </oj-input-text>
+
+    </oj-bind-if>
+
+    <oj-bind-if test='[[$current.mode !== "edit" || !$current.item.data.accountCode]]'>
+      <oj-input-text value="[[row.item.data.comments]]" readonly="true" valid="invalidShown">
+        <oj-bind-if test='[[row.item.data.accountCode]]'>
+          <oj-button slot="end" chroming="borderless" display="icons" on-oj-action="[[$listeners.buttonAction15]]">
+            <span slot="startIcon" class="oj-ux-ico oj-ux-ico-external-link"></span>
+                          </oj-button>
+    </oj-bind-if>
+    </oj-input-text>
+    </oj-bind-if>
+    </span>
+    </td>
+
+    <!-- Line Status Column with Editing Logic -->
+    <td>
+      <span>
+          <oj-bind-if test='[[$current.mode === "edit" && $current.item.data.accountCode]]'>
+ <oj-select-single value="{{ $variables.accountCurrent.lineStatus }}" item-text="lookup_values"
+   readonly="[[ ( row.item.data.lineStatus === 'Deleted') ]]"
+   data="[[ $variables.reallocationRequired==='Y'?$variables.getMultiAccountLineStatusLov:$variables.getLinestatuslovListSDP ]]"
+   on-value-item-changed="[[$listeners.selectValueItem]]" class="treetablelabel" aria-label="Status" ></oj-select-single>
+          </oj-bind-if>
+          <oj-bind-if test='[[$current.mode !== "edit" || !$current.item.data.accountCode]]'>
+            <oj-bind-text value="[[row.item.data.lineStatus]]"></oj-bind-text>
+          </oj-bind-if>
+        </span>
+    </td>
+
+    <!-- last baseline Column -->
+
+
+
+
+    <!-- Total Expenses Column -->
+
+    <td>
+      <span>
+                  <oj-input-number value="[[row.item.data.total_expenses]]" readonly="true"
+                    class="oj-form-control-text-align-right"></oj-input-number>
+                </span>
+    </td>
+
+    <td>
+      <span>
+                  <oj-input-number value="[[row.item.data.last_baseline]]" readonly="true"
+                    class="oj-form-control-text-align-right"></oj-input-number>
+                </span>
+    </td>
+
+
+    <td>
+      <span>
+                  <oj-input-number value="[[row.item.data.totalCost]]" readonly="true"
+                    class="oj-form-control-text-align-right"></oj-input-number>
+                </span>
+    </td>
+
+    <td>
+      <span></span>
+    </td>
+    </tr>
+    </template>
+
+    <template slot="action">
+      <oj-menu-button>Menu Button
+        <oj-menu slot="menu">
+          <oj-option value="item1">Menu Item 1</oj-option>
+        </oj-menu>
+      </oj-menu-button>
+    </template>
+
+    </oj-table>
+
+
+
+  </div>
+  </div>
+  <div slot="oj-tab-bar-2058186034-2-tab-2" id="oj-tab-bar-2058186034-2-tab-2-panel"
+    aria-labelledby="oj-tab-bar-2058186034-2-tab-2-tab" role="tabpanel">
+    <div class="oj-flex oj-sm-align-items-center"
+      style="padding:8px 12px; background:#f8f8f8; border-bottom:1px solid #e0e0e0; margin-bottom:2px;">
+      <!-- Left label, using flex-grow so the right item goes all the way to right -->
+      <div class="oj-flex-item" style="flex-grow:1; font-size:1rem; font-weight:500; color:#333;">
+        Direct Shared
+      </div>
+
+    </div>
+    <div class="oj-flex">
+      <oj-table scroll-policy="loadMoreOnScroll" style="width:100%;height:10rem;"
+        class="oj-flex-item oj-sm-12 oj-md-12 treetable" data="[[ $variables.directSharedTableADP]]"
+        columns="{{ $functions.dstableColumn($variables.directSharedColumns) }}" selection-mode.row="multiple"
+        select-all-control="hidden" on-oj-before-row-edit="[[$listeners.tableBeforeRowEdit2]]"
+        on-oj-before-row-edit-end="[[$listeners.tableBeforeRowEditEnd2]]"
+        on-selected-changed="[[$listeners.tableSelected2]]" display="grid" horizontal-grid-visible="enabled"
+        vertical-grid-visible="enabled" on-columns-changed="[[$listeners.tableColumns2]]" dnd.reorder.columns="enabled"
+        selection-mode.column="multiple" edit-mode="[[ $variables.canEdit ? 'rowEdit' : 'none' ]]">
+        <template slot="account_linecomments">
+          <oj-bind-if test='[[$current.mode == "navigation"]]'>
+            <oj-input-text value="[[$current.data]]" readonly="true">
+              <oj-button slot="end" chroming="borderless" display="icons" on-oj-action="[[$listeners.buttonAction16]]">
+                <span class="oj-ux-ico-external-link" slot="startIcon"></span>
+              </oj-button>
+            </oj-input-text>
+          </oj-bind-if>
+          <oj-bind-if test='[[$current.mode == "edit"]]'>
+            <oj-input-text value="{{ $variables.directSharedCurrentRow.account_line_comments }}" length.max="250"
+              required="[[ $variables.directSharedCurrentRow.account_status_code ==='Revised' ?true:false ]]"
+              valid="invalidShown"
+              validators='[{"type": "regexp","options": {"pattern": "^[^<>]{3,250}$","messageDetail": "Please enter plain text only (3–250 characters). Rich text or HTML is not allowed."}}]'>
+            </oj-input-text>
+          </oj-bind-if>
+        </template>
+        <template slot="value">
+          <oj-bind-if test='[[$current.mode == "navigation"]]'>
+            <oj-input-number value='[[$current.data]]' readonly="true" class="oj-form-control-text-align-right">
+            </oj-input-number>
+          </oj-bind-if>
+          <oj-bind-if test='[[$current.mode == "edit"]]'>
+            <oj-input-number value="{{ $variables.directSharedCurrentRow.account_line_amount }}" min="0" required="true"
+              help.instruction="Negative amounts are not allowed" class="oj-form-control-text-align-right">
+            </oj-input-number>
+          </oj-bind-if>
+        </template>
+        <template slot="status">
+          <oj-bind-if test='[[$current.mode === "navigation"]]'>
+            <oj-bind-text value='[[$current.data]]'></oj-bind-text>
+          </oj-bind-if>
+          <oj-bind-if test='[[$current.mode === "edit"]]'>
+            <oj-select-single
+              data="[[ $variables.reallocationRequired==='Y'?$variables.dsReallocationAccountStatusLOVSDP:$variables.dsAccountStatusLOV ]]"
+              item-text="lookup_values" value="{{ $variables.directSharedCurrentRow.account_status_code }}"
+              id="dsAccountsStatus" aria-label="dsAccountsStatus">
+            </oj-select-single>
+          </oj-bind-if>
+        </template>
+
+      </oj-table>
+    </div>
+  </div>
+  <div slot="oj-tab-bar-2058186034-2-tab-3" id="oj-tab-bar-2058186034-2-tab-3-panel"
+    aria-labelledby="oj-tab-bar-2058186034-2-tab-3-tab" role="tabpanel">
+    <div class="oj-flex oj-sm-align-items-center"
+      style="padding:8px 12px; background:#f8f8f8; border-bottom:1px solid #e0e0e0; margin-bottom:2px;">
+      <!-- Left label, using flex-grow so the right item goes all the way to right -->
+      <div class="oj-flex-item" style="flex-grow:1; font-size:1rem; font-weight:500; color:#333;">
+        Indirect Support
+      </div>
+
+    </div>
+    <div class="oj-flex">
+      <div class="oj-md-12 oj-flex oj-sm-12"
+        style="width:100%;height:10rem; align-items:flex-start; gap:20px; width:100%; flex-wrap:nowrap;">
+
+        <!-- Left side: Label + Single Select -->
+        <div style="display:flex; align-items:center; gap:10px; margin-left:20px; flex:0 0 auto;"
+          class="oj-flex-item oj-sm-flex-initial">
+          <oj-label for="sharedCost" style="margin-top:20px;">Partner Indirect Support cost (PISC)</oj-label>
+          <oj-select-single id="sharedCost" style="width:250px; margin-top:20px;" data="[[ $variables.sharedCostSDP ]]"
+            item-text="lookup_values" value="{{ $variables.sharedCostLovValue }}"
+            on-value-item-changed="[[$listeners.sharedCostValueItem]]"
+            disabled="[[ !$variables.canEdit || !$variables.partnerCanEdit]]">
+            <!-- options here -->
+          </oj-select-single>
+        </div>
+
+        <!-- Right side: oj-table -->
+        <div style="flex:1;" class="oj-flex-item oj-sm-flex-initial">
+          <oj-table scroll-policy="loadMoreOnScroll" selection-mode.row="none" select-all-control="hidden"
+            edit-mode="[[ $variables.canEdit ? 'rowEdit' : 'none' ]]" data="[[ $variables.indirectSharedADP ]]"
+            columns="{{ $functions.idstableColumn($variables.indirectSharedColumns) }}"
+            on-oj-before-row-edit="[[$listeners.tableBeforeRowEdit3]]"
+            on-oj-before-row-edit-end="[[$listeners.tableBeforeRowEditEnd3]]"
+            on-selected-changed="[[$listeners.tableSelected3]]" class="treetable" horizontal-grid-visible="enabled"
+            vertical-grid-visible="enabled" on-columns-changed="[[$listeners.tableColumns3]]"
+            selection-mode.column="multiple" dnd.reorder.columns="enabled" display="grid">
+            <template slot="isValue">
+              <oj-bind-if test='[[$current.mode === "navigation"]]'>
+                <oj-input-number value='[[$current.data]]' readonly="true" class="oj-form-control-text-align-right">
+                </oj-input-number>
+              </oj-bind-if>
+              <oj-bind-if test='[[$current.mode === "edit"]]'>
+                <oj-input-number value="{{ $variables.indirectSharedCurrentRow.total_value }}" readonly="true">
+                </oj-input-number>
+              </oj-bind-if>
+            </template>
+            <!-- table config -->
+          </oj-table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div id="oj-tab-bar-2058186034-2-tab-4-panel" slot="oj-tab-bar-2058186034-2-tab-4"
+    aria-labelledby="oj-tab-bar-2058186034-2-tab-4-tab" role="tabpanel">
+    <div class="oj-flex oj-sm-align-items-center"
+      style="padding:8px 12px; background:#f8f8f8; border-bottom:1px solid #e0e0e0; margin-bottom:2px;">
+      <!-- Left label, using flex-grow so the right item goes all the way to right -->
+      <div class="oj-flex-item" style="flex-grow:1; font-size:1rem; font-weight:500; color:#333;">
+        Essential Controls
+      </div>
+
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; margin-left:20px; flex:0 0 auto;">
+      <oj-validation-group id="oj-validation-group-2058186034-1" valid="{{ $variables.EssentialcontrolValidation }}">
+        <oj-form-layout direction="row" columns="1" label-edge="start" class="oj-formlayout-full-width">
+          <!-- <oj-label for="icaRiskRating" style="margin-top:20px;">Output Level Flexibility</oj-label> -->
+          <oj-select-single id="icaRiskRating" style="width:200px; margin-top:20px;"
+            data="[[ $variables.riskRatingSDP ]]" item-text="lookup_values" value="{{ $variables.riskRatingLovValue }}"
+            on-value-item-changed="[[$listeners.icaRiskRatingValueItem]]"
+            disabled="[[ !$variables.canEdit || !$variables.partnerCanEdit]]" required="true"
+            user-assistance-density="compact" label-hint="Output Level Flexibility">
+            <!-- options here -->
+          </oj-select-single>
+        </oj-form-layout>
+      </oj-validation-group>
+    </div>
+  </div>
+</oj-switcher>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+</oj-bind-if>
+
+</div>
+<div slot="oj-tab-bar-2058186034-1-tab-3" id="oj-tab-bar-2058186034-1-tab-3-panel"
+  aria-labelledby="oj-tab-bar-2058186034-1-tab-3-tab" role="tabpanel">
+  <div class="oj-flex" data-vb-layout-type="grid">
+  </div>
+</div>
+<div id="oj-tab-bar-2058186034-1-tab-4-panel" slot="oj-tab-bar-2058186034-1-tab-4"
+  aria-labelledby="oj-tab-bar-2058186034-1-tab-4-tab" role="tabpanel">
+</div>
+<div id="oj-tab-bar-2058186034-1-tab-5-panel" slot="oj-tab-bar-2058186034-1-tab-5"
+  aria-labelledby="oj-tab-bar-2058186034-1-tab-5-tab" role="tabpanel">
+  <div class="oj-flex">
+    <h1 class="oj-header oj-flex-item oj-sm-12 oj-md-12">Heading</h1>
+  </div>
+</div>
+<div id="oj-tab-bar-2058186034-1-tab-6-panel" slot="oj-tab-bar-2058186034-1-tab-6"
+  aria-labelledby="oj-tab-bar-2058186034-1-tab-6-tab" role="tabpanel">
+  <div class="oj-flex">
+    <h1 class="oj-header oj-flex-item oj-sm-12 oj-md-12">Heading</h1>
+  </div>
+</div>
+</oj-switcher>
+<oj-dialog dialog-title="Assign Accounts" id="oj-dialog-54998388-1" cancel-behavior="icon"
+  style="width: 90%; max-width: 800px;">
+  <div slot="body">
+    <h8 class="oj-header">Selected outputs and locations</h8>
+
+    <!-- Flex row container -->
+    <div class="oj-flex oj-sm-flex-direction-row" style="gap:24px; align-items:flex-start;">
+
+      <!-- Left side: Output & Location table -->
+      <div class="oj-flex-item oj-sm-12 oj-md-12">
+        <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+          data="[[ $variables.selectedDataTableADP ]]" columns='[
+            {"headerText":"Output","field":"output"},
+            {"headerText":"Location","field":"location"}
+          ]'>
+        </oj-table>
+      </div>
+
+      <!-- Right side: Account selector + Account table -->
+
+
+      <!-- Multi-select dropdown -->
+      <oj-select-many label-hint="Select Accounts" class="oj-sm-12" options-keys.value="account_id"
+        options-keys.label="account_number_description" style="margin-bottom:12px;"
+        on-value-changed="[[$listeners.selectValue8]]" value="{{ $variables.selectedAccount }}"
+        options="[[$variables.getAccountsGetListSDP]]">
+      </oj-select-many>
+
+      <!-- Account table -->
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+        data="[[ $variables.selectedAccountTableADP ]]" columns='[
+            {"headerText":"Account","field":"account_number"},
+            {"headerText":"Account Description","field":"account_description"}
+          ]'>
+      </oj-table>
+
+    </div>
+
+  </div>
+
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction2]]" disabled="[[ !$variables.canEdit ]]">Save</oj-button>
+  </div>
+</oj-dialog>
+
+
+<oj-dialog dialog-title="Update Status" id="oj-dialog-status" cancel-behavior="icon"
+  style="width: 90%; max-width: 800px;">
+  <div slot="body">
+    <h8 class="oj-header">Selected outputs and locations</h8>
+
+    <!-- Flex row container -->
+    <div class="oj-flex oj-sm-flex-direction-row" style="gap:24px; align-items:flex-start;">
+
+      <!-- Left side: Output & Location table -->
+      <div class="oj-flex-item oj-sm-12 oj-md-10">
+        <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+          data="[[ $variables.selectedDataTableADP ]]" columns='[
+            {"headerText":"Output","field":"output"},
+            {"headerText":"Location","field":"location"}
+          ]'>
+        </oj-table>
+      </div>
+
+      <!-- Right side: Account selector + Account table -->
+
+
+      <!-- Multi-select dropdown -->
+      <!-- <oj-select-many label-hint="Select Accounts" class="oj-sm-12"
+          options="[[$variables.getAccountsGetListSDP2]]" 
+          options-keys.value="account_id"
+          options-keys.label="account_number" 
+          on-value-changed="[[$listeners.selectValue4]]"
+          style="margin-bottom:12px;">
+        </oj-select-many>
+         -->
+      <!-- Account table -->
+      <!-- <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12"     style="overflow-y:auto; width:100%;"
+          data="[[ $variables.selectedAccountTableADP ]]"
+          columns='[
+            {"headerText":"Account","field":"account_number"},
+            {"headerText":"Account Description","field":"account_description"}
+          ]'>
+        </oj-table> -->
+      <oj-select-single label-hint="Select Status" class="oj-flex-item oj-sm-12 oj-md-3" item-text="lookup_values"
+        data="[[ $variables.reallocationRequired==='Y'?$variables.reallocationMultiLevelStatusSDP:$variables.multiLevelStatusUpdateSDP ]]"
+        value="{{ $variables.lineStausUpdate }}">
+        <oj-option value="A">Option A</oj-option>
+        <oj-option value="B">Option B</oj-option>
+        <oj-option value="C">Option C</oj-option>
+      </oj-select-single>
+
+    </div>
+
+  </div>
+
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction3]]">Update</oj-button>
+  </div>
+</oj-dialog>
+<oj-dialog dialog-title="Delete Account Line(s)" id="oj-dialog-delete" cancel-behavior="icon"
+  style="width: 90%; max-width: 800px;">
+  <div slot="body">
+    <h8 class="oj-header">Selected outputs and locations</h8>
+
+    <!-- Flex row container -->
+    <div class="oj-flex oj-sm-flex-direction-row" style="gap:24px; align-items:flex-start;">
+
+      <!-- Left side: Output & Location table -->
+      <div class="oj-flex-item oj-sm-12 oj-md-10">
+        <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+          data="[[ $variables.selectedDataTableADP ]]" columns='[
+            {"headerText":"Output","field":"output"},
+            {"headerText":"Location","field":"location"}
+          ]'>
+        </oj-table>
+      </div>
+
+      <!-- Right side: Account selector + Account table -->
+
+
+      <!-- Multi-select dropdown -->
+      <oj-select-many label-hint="Accounts to be deleted" class="oj-sm-12" options-keys.value="account_id"
+        options-keys.label="account_number" style="margin-bottom:12px;"
+        value="{{ $variables.selectedAccount_forDelete }}" options="[[ $variables.getAccountsGetListSDP ]]"
+        on-value-changed="[[$listeners.selectValue9]]">
+      </oj-select-many>
+
+      <!-- Account table -->
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+        data="[[ $variables.selectedAccountTableADP ]]" columns='[
+            {"headerText":"Account","field":"account_number"},
+            {"headerText":"Account Description","field":"account_description"}
+          ]'>
+      </oj-table>
+      <!-- <oj-select-single label-hint="Select Status" class="oj-flex-item oj-sm-12 oj-md-3" item-text="lookup_values"
+        data="[[ $variables.getLinestatuslovListSDP ]]" value="{{ $variables.lineStausUpdate }}">
+  <oj-option value="A">Option A</oj-option>
+  <oj-option value="B">Option B</oj-option>
+  <oj-option value="C">Option C</oj-option>
+      </oj-select-single> -->
+
+    </div>
+
+  </div>
+
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction4]]">Delete</oj-button>
+  </div>
+</oj-dialog>
+
+<!-- Direct Shared Add Accounts Line Dialog -->
+
+<oj-dialog dialog-title="Add Direct Shared Accounts" id="oj-dialog-dsTab" style="width: 90%; max-width: 800px;"
+  cancel-behavior="icon">
+  <div slot="body">
+    <div class="oj-flex">
+      <oj-select-many label-hint="Select Accounts" class="oj-sm-12" options="[[ $variables.getDSaccountsSDP ]]"
+        options-keys.label="account_number_description" options-keys.value="account_number"
+        on-value-changed="[[$listeners.selectValue10]]"></oj-select-many>
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+        data="[[ $variables.selectedDSaccountADP ]]" columns='[
+            {"headerText":"Account","field":"account_number"},
+            {"headerText":"Account Description","field":"account_description"}
+          ]'>
+
+      </oj-table>
+
+
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction6]]">Add Accounts</oj-button>
+  </div>
+</oj-dialog>
+
+
+<!-- Direct Shared Account Status Update Dialog -->
+
+<oj-dialog dialog-title="Update Status" id="oj-dialog-ds-status" cancel-behavior="icon">
+  <div slot="body">
+    <div class="oj-flex">
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+        data="[[ $variables.dsStatusUpdateRowsADP ]]"
+        columns='[{"headerText":"Account","field":"account_number"},{"headerText":"Account Description","field":"account_description"}]'>
+      </oj-table>
+      <oj-select-single label-hint="Select Status" class="oj-flex-item oj-sm-flex-initial"
+        data="[[ $variables.reallocationRequired==='Y'?$variables.reallocationMultiLevelStatusSDP:$variables.multiLevelStatusUpdateSDP ]]"
+        value="{{ $variables.dsAccountStatusValue }}" item-text="lookup_values"></oj-select-single>
+
+
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction7]]">Update Status</oj-button>
+  </div>
+</oj-dialog>
+
+
+<!-- Indirect Share Add Accounts Line Dialog -->
+
+<oj-dialog dialog-title="Add Indirect Support Accounts" id="oj-dialog-isTab" style="width: 90%; max-width: 800px;"
+  cancel-behavior="icon">
+  <div slot="body">
+    <div class="oj-flex">
+      <oj-select-many label-hint="Select Accounts" class="oj-sm-12" options="[[ $variables.getISaccountsSDP ]]"
+        options-keys.label="account_number" options-keys.value="account_number"
+        on-value-changed="[[$listeners.selectValue11]]"></oj-select-many>
+      <oj-table scroll-policy="loadMoreOnScroll" class="oj-sm-12" style="overflow-y:auto; width:100%;"
+        data="[[ $variables.selectedISaccountADP ]]"
+        columns='[{"headerText":"Account","field":"account_number"},{"headerText":"Account Description","field":"account_description"}]'>
+
+      </oj-table>
+
+
+    </div>
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction8]]">Add Accounts</oj-button>
+  </div>
+</oj-dialog>
+
+<!-- Comments History Dialog -->
+
+<oj-dialog dialog-title="Comments" id="commentHistoryDialog" drag-affordance="none" style="width: 700px; height: 250px;"
+  cancel-behavior="icon">
+  <div slot="body">
+  </div>
+  <oj-list-view data="[[$variables.commentsSDP]]" selection-mode="none" aria-label="Comments"
+    style="max-height:300px; overflow-y:auto;">
+
+    <template slot="itemTemplate" data-oj-as="item">
+      <li style="padding:10px; border-bottom:1px solid #ddd;">
+
+        <!-- Date / Time / User -->
+        <div style="font-size:12px;">
+          <oj-bind-text value="[[item.data.last_updated_date]]"></oj-bind-text> /
+          <oj-bind-text value="[[item.data.last_updated_by]]"></oj-bind-text>
+        </div>
+
+        <!-- Comment text -->
+        <div style="margin-top:4px;">
+          <oj-bind-text value="[[item.data.comments]]"></oj-bind-text>
+        </div>
+      </li>
+    </template>
+  </oj-list-view>
+
+  </div>
+  </div>
+
+</oj-dialog>
+
+<!-- Direct Programee Comments History -->
+
+<oj-dialog dialog-title="Comments" id="dpcommentHistoryDialog" drag-affordance="none"
+  style="width: 700px; height: 250px;" cancel-behavior="icon">
+  <div slot="body">
+  </div>
+  <oj-list-view data="[[$variables.dpCommentsSDP]]" selection-mode="none" aria-label="Comments"
+    style="max-height:300px; overflow-y:auto;">
+
+    <template slot="itemTemplate" data-oj-as="item">
+      <li style="padding:10px; border-bottom:1px solid #ddd;">
+
+        <!-- Date / Time / User -->
+        <div style="font-size:12px;">
+          <oj-bind-text value="[[item.data.last_updated_date]]"></oj-bind-text> /
+          <oj-bind-text value="[[item.data.last_updated_by]]"></oj-bind-text>
+        </div>
+
+        <!-- Comment text -->
+        <div style="margin-top:4px;">
+          <oj-bind-text value="[[item.data.comments]]"></oj-bind-text>
+        </div>
+      </li>
+    </template>
+  </oj-list-view>
+
+  </div>
+  </div>
+
+</oj-dialog>
+
+
+<!-- Direct Shared Comments History -->
+
+<oj-dialog dialog-title="Comments" id="dscommentHistoryDialog" drag-affordance="none"
+  style="width: 700px; height: 250px;" cancel-behavior="icon">
+  <div slot="body">
+  </div>
+  <oj-list-view data="[[$variables.dsCommentsSDP]]" selection-mode="none" aria-label="Comments"
+    style="max-height:300px; overflow-y:auto;">
+
+    <template slot="itemTemplate" data-oj-as="item">
+      <li style="padding:10px; border-bottom:1px solid #ddd;">
+
+        <!-- Date / Time / User -->
+        <div style="font-size:12px;">
+          <oj-bind-text value="[[item.data.last_updated_date]]"></oj-bind-text> /
+          <oj-bind-text value="[[item.data.last_updated_by]]"></oj-bind-text>
+        </div>
+
+        <!-- Comment text -->
+        <div style="margin-top:4px;">
+          <oj-bind-text value="[[item.data.comments]]"></oj-bind-text>
+        </div>
+      </li>
+    </template>
+  </oj-list-view>
+
+  </div>
+  </div>
+
+</oj-dialog>
+
+
+
+<!-- </oj-sp-welcome-page> -->
+<oj-sp-message-dialog-general display="primaryCancel" id="changelogdialog" primary-action-label="Submit"
+  secondary-action-label="Cancel" primary-text="Change Scope"
+  secondary-text="This will put the status of the FPN back to Under Rescope and unlock COMPASS to  make changes in Output, EO or budgets requiring new approval. Do you want to continue?"
+  open-dialog="true" on-oj-sp-primary-action="[[$listeners.changelogdialogSpPrimaryAction]]">
+</oj-sp-message-dialog-general>
+<oj-dialog dialog-title="Please wait" id="progressbar">
+  <oj-progress-bar value="-1"></oj-progress-bar>
+</oj-dialog>
+
+
+<oj-sp-message-dialog-general display="primaryCancel" id="uploaderrordialog"
+  primary-action-label="Download Error Report" secondary-action-label="Cancel" primary-text="Excel Import Failed"
+  open-dialog="true" secondary-text="[[ $variables.excelImportMessages.secondaryMessages ]]"
+  on-oj-sp-primary-action="[[$listeners.uploaderrordialogSpPrimaryAction]]"
+  on-oj-sp-cancel="[[$listeners.uploaderrordialogSpCancel]]">
+</oj-sp-message-dialog-general>
+
+
+<oj-dialog dialog-title="Reallocation Request" id="reallocationPopup">
+  <div slot="body">
+    Do you want to send Reallocation Request for this FPN ?
+  </div>
+  <div slot="footer">
+    <oj-button on-oj-action="[[$listeners.buttonAction21]]">Yes</oj-button>
+    <oj-button on-oj-action="[[$listeners.buttonAction22]]">No</oj-button>
+  </div>
+</oj-dialog>
+
+<oj-dialog dialog-title="Reallocation Request Approve/Reject" id="ReallocationRequestApproveRejectPopup"
+  cancel-behavior="icon">
+  <div slot="body">
+    <oj-button on-oj-action="[[$listeners.buttonAction24]]">Approve</oj-button>
+    <oj-button class="oj-sm-margin-4x-horizontal" on-oj-action="[[$listeners.buttonAction25]]">Reject</oj-button>
+  </div>
+</oj-dialog>
